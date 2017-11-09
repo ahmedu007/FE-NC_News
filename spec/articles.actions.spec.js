@@ -1,3 +1,4 @@
+import { expect } from "chai";
 import nock from "nock";
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
@@ -6,7 +7,7 @@ import fetchArticles, {
   fetchArticlesRequest,
   fetchArticlesSuccess,
   fetchArticlesFailure
-} from "../actions/articles.action";
+} from "../src/actions/articles.action";
 
 const API_URL = "https://northcoders-news-api.herokuapp.com/api";
 
@@ -24,30 +25,29 @@ describe("async action creators", () => {
 
       const expectedActions = [
         fetchArticlesRequest(),
-        // fetchArticlesFailure("Network Error")
         fetchArticlesSuccess([1, 2, 3])
       ];
 
       const store = mockStore();
 
       return store.dispatch(fetchArticles()).then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
+        expect(store.getActions()).to.eql(expectedActions);
       });
     });
     it("dispatches FETCH_ALL_ARTICLES_FAILURE when fetching articles reponds with an error", () => {
       nock(API_URL)
         .get("/articles")
-        .replyWithError({ message: "error" });
+        .replyWithError({ message: "Error" });
 
       const expectedActions = [
         fetchArticlesRequest(),
-        fetchArticlesFailure(" Error")
+        fetchArticlesFailure("Error")
       ];
 
       const store = mockStore();
 
       return store.dispatch(fetchArticles()).then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
+        expect(store.getActions()).to.eql(expectedActions);
       });
     });
   });

@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import PT from "prop-types";
 
 import fetchArticles from "../actions/articles.action";
-import { stat } from "fs";
 import { NavLink } from "react-router-dom";
 
 class Homepage extends React.Component {

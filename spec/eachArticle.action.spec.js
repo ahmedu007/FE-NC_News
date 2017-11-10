@@ -9,16 +9,16 @@ import fetchEachArticle, {
   fetchEachArticleFailure
 } from "../src/actions/eachArticle.action";
 
-const API_URL = "https://northcoders-news-api.herokuapp.com/api";
+const API_URL = "https://northcoders-news-api.herokuapp.com/api/";
 const id = "583412925905f02e4c8e6e01";
 const mockStore = configureMockStore([thunk]);
 
-describe("async action creators", () => {
+describe.only("async action creators", () => {
   afterEach(() => {
     nock.cleanAll();
   });
-  describe("fetchEachArticle", () => {
-    it.only("dispatches FETCH_EACH_ARTICLE_SUCCESS when fetching ArticleById reponds with 200 and data", () => {
+  describe("fetchAllArticleById", () => {
+    it("dispatches FETCH_ARTICLEBYID_SUCCESS when fetching ArticleById reponds with 200 and data", () => {
       nock(API_URL)
         .get(`/articles/${id}`)
         .reply(200, { ArticleById: [1, 2, 3] });
@@ -34,9 +34,9 @@ describe("async action creators", () => {
         expect(store.getActions()).to.eql(expectedActions);
       });
     });
-    it("dispatches FETCH_EACH_ARTICLE_FAILURE when fetching ArticleById reponds with an error", () => {
+    it("dispatches FETCH_ARTICLEBYID_FAILURE when fetching ArticleById reponds with an error", () => {
       nock(API_URL)
-        .get(`/articles/${id}`)
+        .get("/articles/583412925905f02e4c8e6e01")
         .replyWithError({ message: "error" });
 
       const expectedActions = [

@@ -23,7 +23,7 @@ export default id => {
     return axios
       .get(`${API_URL}/articles/${id}`)
       .then(res => {
-        dispatch(fetchEachArticleSuccess(res.data.articles));
+        dispatch(fetchEachArticleSuccess(res.data));
       })
       .catch(error => {
         dispatch(fetchEachArticleFailure(error.message));

@@ -1,6 +1,7 @@
 import React from "react";
 import fetchEachArticle from "../actions/eachArticle.action";
 import { connect } from "react-redux";
+import { request } from "https";
 
 class EachArticle extends React.Component {
   componentDidMount() {
@@ -17,7 +18,6 @@ class EachArticle extends React.Component {
                 return (
                   <div className="box">
                     <strong>{article.title} </strong>
-
                     <p>{article.body}</p>
                     <p>
                       <small>{article.created_by}</small>

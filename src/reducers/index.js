@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-import articles from "../actions/articles.action";
+import articles from "./articles.reducer";
 
 const reducer = combineReducers({
   articles

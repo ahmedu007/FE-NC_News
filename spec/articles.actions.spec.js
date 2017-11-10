@@ -9,7 +9,7 @@ import fetchArticles, {
   fetchArticlesFailure
 } from "../src/actions/articles.action";
 
-const API_URL = "https://northcoders-news-api.herokuapp.com/api";
+const API_URL = "https://s-sharda-nc.herokuapp.com/api";
 
 const mockStore = configureMockStore([thunk]);
 

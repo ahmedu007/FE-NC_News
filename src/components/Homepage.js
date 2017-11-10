@@ -4,6 +4,7 @@ import PT from "prop-types";
 
 import fetchArticles from "../actions/articles.action";
 import { stat } from "fs";
+import { NavLink } from "react-router-dom";
 
 class Homepage extends React.Component {
   componentDidMount() {
@@ -12,10 +13,24 @@ class Homepage extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        {this.props.articles.map(article => {
-          return <div className="box">{article.title}</div>;
-        })}
+      <div>
+        <div className="App">
+          <header className="App-header">
+            <h1 className="App-title">Welcome to React</h1>
+          </header>
+          <br />
+        </div>
+        <div className="container">
+          {this.props.articles.map(article => {
+            return (
+              <div className="box">
+                <NavLink to={`/articles/${article._id}`} key={article._id}>
+                  {article.title}
+                </NavLink>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }

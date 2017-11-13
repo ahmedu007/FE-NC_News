@@ -1,7 +1,6 @@
 import React from "react";
 import fetchEachArticle from "../actions/eachArticle.action";
 import { connect } from "react-redux";
-import { request } from "https";
 
 class EachArticle extends React.Component {
   componentDidMount() {

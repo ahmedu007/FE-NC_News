@@ -5,6 +5,8 @@ import PT from "prop-types";
 import fetchArticles from "../actions/articles.action";
 import { NavLink } from "react-router-dom";
 
+import Topic from "./Topics";
+
 class Homepage extends React.Component {
   componentDidMount() {
     this.props.fetchArticles();
@@ -16,13 +18,16 @@ class Homepage extends React.Component {
         <div className="App">
           <header className="App-header">
             <h1 className="App-title">Welcome to React</h1>
+            <ul>
+              <Topic />
+            </ul>
           </header>
           <br />
         </div>
         <div className="container">
-          {this.props.articles.map(article => {
+          {this.props.articles.map((article, i) => {
             return (
-              <div className="box">
+              <div className="box" key={i}>
                 <NavLink to={`/articles/${article._id}`} key={article._id}>
                   {article.title}
                 </NavLink>

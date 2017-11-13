@@ -1,7 +1,7 @@
 import React from "react";
 import PT from "prop-types";
 import { connect } from "react-redux";
-import { Redirect, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import fetchTopics from "../actions/topics.action";
 
 class Topic extends React.Component {
@@ -10,14 +10,16 @@ class Topic extends React.Component {
   }
 
   render() {
-    const { topics, loading, error } = this.props;
+    // const { topics, loading, error } = this.props;
     return (
       <div>
-        {topics.map(topic => {
+        {this.props.topics.map((topic, i) => {
           return (
-            <NavLink to={`/topics/${topic.title}/articles`} key={topic.title}>
-              {topic.title}
-            </NavLink>
+            <li key={i}>
+              <NavLink to={`/topics/${topic.title}/articles`} key={topic.title}>
+                {topic.title}
+              </NavLink>
+            </li>
           );
         })}
       </div>

@@ -13,7 +13,7 @@ const API_URL = "https://northcoders-news-api.herokuapp.com/api/";
 const id = "583412925905f02e4c8e6e01";
 const mockStore = configureMockStore([thunk]);
 
-describe.only("async action creators", () => {
+describe("async action creators", () => {
   afterEach(() => {
     nock.cleanAll();
   });

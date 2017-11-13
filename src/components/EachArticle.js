@@ -9,27 +9,18 @@ class EachArticle extends React.Component {
   }
 
   render() {
+    const article = this.props.eachArticle;
     return (
       <div className="container">
-        <div>
-          {this.props.articles.map(article => {
-            {
-              if (article._id === this.props.match.params.id) {
-                return (
-                  <div className="box">
-                    <strong>{article.title} </strong>
-                    <p>{article.body}</p>
-                    <p>
-                      <small>{article.created_by}</small>
-                    </p>
-                    <div className="box">
-                      <p>{article.votes}</p>
-                    </div>
-                  </div>
-                );
-              }
-            }
-          })}
+        <div className="box">
+          <strong>{article.title} </strong>
+          <p>{article.body}</p>
+          <p>
+            <small>{article.created_by}</small>
+          </p>
+          <div className="box">
+            <p>{article.votes}</p>
+          </div>
         </div>
       </div>
     );
@@ -38,9 +29,9 @@ class EachArticle extends React.Component {
 
 const mapStateToProps = state => ({
   // comments: state.comments.data,
-  articles: state.articles.data,
-  loading: state.articles.loading,
-  error: state.articles.error
+  loading: state.eachArticle.loading,
+  error: state.eachArticle.error,
+  eachArticle: state.eachArticle.data
 });
 
 const mapDispatchToProps = dispatch => ({

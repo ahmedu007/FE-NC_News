@@ -2,6 +2,7 @@ import React from "react";
 import fetchEachArticle from "../actions/eachArticle.action";
 import { connect } from "react-redux";
 import fetchComments from "../actions/comments.action";
+import CommentForm from "./CommentForm";
 
 class EachArticle extends React.Component {
   componentDidMount() {
@@ -44,6 +45,7 @@ class EachArticle extends React.Component {
           })}
         </div>
         <hr />
+        <CommentForm />
       </div>
     );
   }

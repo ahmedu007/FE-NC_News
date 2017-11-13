@@ -1,10 +1,12 @@
 import React from "react";
 import fetchEachArticle from "../actions/eachArticle.action";
 import { connect } from "react-redux";
+import fetchComments from "../actions/comments.action";
 
 class EachArticle extends React.Component {
   componentDidMount() {
     this.props.fetchEachArticle(this.props.match.params.id);
+    this.props.fetchComments(this.props.match.params.id);
   }
 
   render() {
@@ -21,13 +23,34 @@ class EachArticle extends React.Component {
             <p>{article.votes}</p>
           </div>
         </div>
+        <br />
+        <h2>
+          <strong>Comments</strong>
+        </h2>
+        <hr />
+        <div>
+          {this.props.comments.map(comment => {
+            return (
+              <div className="box">
+                <p> {comment.body} </p>
+                <p>
+                  <small>
+                    <span>Votes: "{comment.votes}" </span>
+                    comment by: <strong>{comment.created_by}</strong>
+                  </small>
+                </p>
+              </div>
+            );
+          })}
+        </div>
+        <hr />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  // comments: state.comments.data,
+  comments: state.comments.data,
   loading: state.eachArticle.loading,
   error: state.eachArticle.error,
   eachArticle: state.eachArticle.data
@@ -38,7 +61,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(fetchEachArticle(id));
   },
   fetchComments: id => {
-    // dispatch(fetchComments(id));
+    dispatch(fetchComments(id));
   }
 });
 

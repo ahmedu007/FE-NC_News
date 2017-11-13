@@ -15,15 +15,6 @@ class Homepage extends React.Component {
   render() {
     return (
       <div>
-        <div className="App">
-          <header className="App-header">
-            <h1 className="App-title">Welcome to React</h1>
-            <ul>
-              <Topic />
-            </ul>
-          </header>
-          <br />
-        </div>
         <div className="container">
           {this.props.articles.map((article, i) => {
             return (

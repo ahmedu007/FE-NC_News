@@ -18,10 +18,36 @@ class Homepage extends React.Component {
         <div className="container">
           {this.props.articles.map((article, i) => {
             return (
-              <div className="box" key={i}>
-                <NavLink to={`/articles/${article._id}`} key={article._id}>
-                  {article.title}
-                </NavLink>
+              <div className="columns">
+                <div
+                  className="box"
+                  style={{ marginTop: "12px", marginBottom: "12px" }}
+                >
+                  <p>{article.votes}</p>
+                  <a>
+                    <i
+                      class="fa fa-thumbs-o-up"
+                      aria-hidden="true"
+                      style={{
+                        color: "green"
+                      }}
+                    />
+                  </a>{" "}
+                  <a>
+                    <i
+                      class="fa fa-thumbs-o-down"
+                      aria-hidden="true"
+                      style={{ color: "tomato" }}
+                    />
+                  </a>
+                </div>
+                <div className="column is-four-fifths">
+                  <div className="box" key={i} style={{ height: "100%" }}>
+                    <NavLink to={`/articles/${article._id}`} key={article._id}>
+                      {article.title}
+                    </NavLink>
+                  </div>
+                </div>
               </div>
             );
           })}

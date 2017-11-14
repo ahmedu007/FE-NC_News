@@ -16,7 +16,11 @@ class Topic extends React.Component {
         {this.props.topics.map((topic, i) => {
           return (
             <li key={i}>
-              <NavLink to={`/topics/${topic.title}/articles`} key={topic.title}>
+              <NavLink
+                to={`/topics/${topic.title}/articles`}
+                key={topic.title}
+                activeClassName="is-active"
+              >
                 {topic.title}
               </NavLink>
             </li>

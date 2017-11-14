@@ -14,14 +14,38 @@ class EachArticle extends React.Component {
     const article = this.props.eachArticle;
     return (
       <div className="container">
-        <div className="box">
-          <strong>{article.title} </strong>
-          <p>{article.body}</p>
-          <p>
-            <small>{article.created_by}</small>
-          </p>
-          <div className="box">
+        <div className="columns">
+          <div
+            className="box"
+            style={{ marginTop: "12px", marginBottom: "12px" }}
+          >
             <p>{article.votes}</p>
+            <br />
+            <p>
+              <i
+                class="fa fa-thumbs-o-up"
+                aria-hidden="true"
+                style={{
+                  color: "green"
+                }}
+              />
+            </p>
+            <p>
+              <i
+                class="fa fa-thumbs-o-down"
+                aria-hidden="true"
+                style={{ color: "tomato" }}
+              />
+            </p>
+          </div>
+          <div className="column is-four-fifths">
+            <div className="box">
+              <strong>{article.title} </strong>
+              <p>{article.body}</p>
+              <p>
+                <small>{article.created_by}</small>
+              </p>
+            </div>
           </div>
         </div>
         <br />
@@ -32,14 +56,42 @@ class EachArticle extends React.Component {
         <div>
           {this.props.comments.map(comment => {
             return (
-              <div className="box">
-                <p> {comment.body} </p>
-                <p>
-                  <small>
-                    <span>Votes: "{comment.votes}" </span>
-                    comment by: <strong>{comment.created_by}</strong>
-                  </small>
-                </p>
+              <div className="columns">
+                <div
+                  className="box"
+                  style={{ marginTop: "12px", marginBottom: "12px" }}
+                >
+                  <span>{comment.votes}</span>
+                  <br />
+                  <p>
+                    <i
+                      class="fa fa-thumbs-o-up"
+                      aria-hidden="true"
+                      style={{
+                        color: "green"
+                      }}
+                    />
+                  </p>
+                  <p>
+                    <i
+                      class="fa fa-thumbs-o-down"
+                      aria-hidden="true"
+                      style={{ color: "tomato" }}
+                    />
+                  </p>
+                </div>
+                <div>
+                  <div className="column is-four-fifths">
+                    <div className="box">
+                      <p> {comment.body} </p>
+                      <p>
+                        <small>
+                          comment by: <strong>{comment.created_by}</strong>
+                        </small>
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             );
           })}

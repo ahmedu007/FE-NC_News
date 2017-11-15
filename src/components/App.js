@@ -5,7 +5,6 @@ import Homepage from "./Homepage";
 import EachArticle from "./EachArticle";
 import Topics from "./Topics";
 import ArticlesByTopic from "./ArticlesByTopic";
-import Topic from "./Topics";
 import Navbar from "./Navbar";
 
 import "./App.css";

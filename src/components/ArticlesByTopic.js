@@ -26,7 +26,7 @@ class ArticlesByTopic extends React.Component {
       <div className="container">
         {this.props.articlesByTopic.map((article, i) => {
           return (
-            <div className="box">
+            <div className="box" key={i}>
               <NavLink to={`/articles/${article._id}`}>
                 <section>{article.votes}</section>
                 <span> {article.title}</span>

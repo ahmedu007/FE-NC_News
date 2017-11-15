@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import axios from "axios";
 
 const API_URL = "https://s-sharda-nc.herokuapp.com/api";
@@ -23,7 +22,6 @@ class CommentForm extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
     axios
       .post(
         `${API_URL}/articles/${this.props.id}/comments`,
@@ -49,7 +47,8 @@ class CommentForm extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-          <button type="submit"> button</button>
+          <br />
+          <button type="submit"> Button</button>
         </form>
       </div>
     );

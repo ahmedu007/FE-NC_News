@@ -3,7 +3,6 @@ import fetchEachArticle from "../actions/eachArticle.action";
 import { connect } from "react-redux";
 import fetchComments from "../actions/comments.action";
 import CommentForm from "./CommentForm";
-import postComments from "../actions/postComments.action";
 
 class EachArticle extends React.Component {
   componentDidMount() {
@@ -11,13 +10,13 @@ class EachArticle extends React.Component {
     this.props.fetchComments(this.props.match.params.id);
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if(this.props.postComments)
-  //   this.props.postComments(
-  //     this.props.match.params.id,
-  //     this.props.postComments
-  //   );
-  // }
+  componentWillReceiveProps(nextProps) {
+    console.log("new", nextProps.comments);
+    console.log("old", this.props.comments);
+    // if (this.props.comments !== nextProps.comments) {
+    //   this.props.fetchComments(this.props.match.params.id);
+    // }
+  }
 
   render() {
     const article = this.props.eachArticle;
@@ -118,8 +117,7 @@ const mapStateToProps = state => ({
   comments: state.comments.data,
   loading: state.eachArticle.loading,
   error: state.eachArticle.error,
-  eachArticle: state.eachArticle.data,
-  postComments: state.postComments.data
+  eachArticle: state.eachArticle.data
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -128,9 +126,6 @@ const mapDispatchToProps = dispatch => ({
   },
   fetchComments: id => {
     dispatch(fetchComments(id));
-  },
-  postComments: (id, comment) => {
-    dispatch(postComments(id, comment));
   }
 });
 

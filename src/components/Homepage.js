@@ -5,8 +5,6 @@ import PT from "prop-types";
 import fetchArticles from "../actions/articles.action";
 import { NavLink } from "react-router-dom";
 
-import Topic from "./Topics";
-
 class Homepage extends React.Component {
   componentDidMount() {
     this.props.fetchArticles();

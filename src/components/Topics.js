@@ -13,19 +13,24 @@ class Topic extends React.Component {
     // const { topics, loading, error } = this.props;
     return (
       <div>
-        {this.props.topics.map((topic, i) => {
-          return (
-            <li key={i}>
-              <NavLink
-                to={`/topics/${topic.title}/articles`}
-                key={topic.title}
-                activeClassName="is-active"
-              >
-                {topic.title}
-              </NavLink>
-            </li>
-          );
-        })}
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          {this.props.topics.map((topic, i) => {
+            return (
+              <li key={i}>
+                <NavLink
+                  to={`/topics/${topic.title}/articles`}
+                  key={topic.title}
+                  activeClassName="is-active"
+                >
+                  {topic.title}
+                </NavLink>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
   }

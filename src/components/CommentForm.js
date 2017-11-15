@@ -1,39 +1,59 @@
 import React from "react";
 import { connect } from "react-redux";
-// import postComments from "../actions/postComments.action";
+import axios from "axios";
+
+const API_URL = "https://s-sharda-nc.herokuapp.com/api";
 
 class CommentForm extends React.Component {
-  componentDidUpdate() {
-    // this.props.postComments();
+  constructor(props) {
+    super(props);
+    this.state = {
+      newComment: { comment: "" }
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleChange(event) {
+    event.preventDefault();
+    let comment = event.target.value;
+    this.setState({
+      newComment: { comment }
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    axios
+      .post(
+        `${API_URL}/articles/${this.props.id}/comments`,
+        this.state.newComment
+      )
+      .then(res => {
+        console.log("New comment added: ", res);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
   render() {
     return (
       <div className="field">
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div className="control">
             <textarea
-              className="textarea is-success"
+              className="textarea is-warning"
               type="text"
               placeholder="Add a public Comment"
+              onChange={this.handleChange}
             />
           </div>
+          <button type="submit"> button</button>
         </form>
       </div>
     );
   }
 }
 
-// const mapStateToProps = state => ({
-//   postComments: state.postComments.data,
-//   loading: state.postComments.loading,
-//   error: state.postComments.error
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   postComments: (id, comment) => {
-//     dispatch(postComments(id, comment));
-//   }
-// });
-
-// export default connect(mapStateToProps, mapDispatchToProps)(CommentForm);
 export default CommentForm;

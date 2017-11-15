@@ -19,7 +19,7 @@ describe("async action creators", () => {
   afterEach(() => {
     nock.cleanAll();
   });
-  describe("fetchAllArticleById", () => {
+  describe("fetchComment", () => {
     it("dispatches FETCH_COMMENTS_SUCCESS when fetching ArticleById reponds with 200 and data", () => {
       nock(API_URL)
         .get(`/articles/${id}/comments`)

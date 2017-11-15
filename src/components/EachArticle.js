@@ -23,90 +23,92 @@ class EachArticle extends React.Component {
     const article = this.props.eachArticle;
     return (
       <div className="container">
-        <div className="columns">
-          <div
-            className="box"
-            style={{ marginTop: "12px", marginBottom: "12px" }}
-          >
-            <p>{article.votes}</p>
-            <br />
-            <p>
-              <i
-                className="fa fa-thumbs-o-up"
-                aria-hidden="true"
-                style={{
-                  color: "green"
-                }}
-              />
-            </p>
-            <p>
-              <i
-                className="fa fa-thumbs-o-down"
-                aria-hidden="true"
-                style={{ color: "tomato" }}
-              />
-            </p>
-          </div>
-          <div className="column is-four-fifths">
-            <div className="box">
-              <strong>{article.title} </strong>
-              <p>{article.body}</p>
+        <div className="box">
+          <div className="columns">
+            <div
+              className="box"
+              style={{ marginTop: "12px", marginBottom: "12px" }}
+            >
+              <p>{article.votes}</p>
+              <br />
               <p>
-                <small>{article.created_by}</small>
+                <i
+                  className="fa fa-thumbs-o-up"
+                  aria-hidden="true"
+                  style={{
+                    color: "green"
+                  }}
+                />
+              </p>
+              <p>
+                <i
+                  className="fa fa-thumbs-o-down"
+                  aria-hidden="true"
+                  style={{ color: "tomato" }}
+                />
               </p>
             </div>
+            <div className="column is-four-fifths">
+              <div className="box">
+                <strong>{article.title} </strong>
+                <p>{article.body}</p>
+                <p>
+                  <small>{article.created_by}</small>
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-        <br />
-        <h2>
-          <strong>Comments</strong>
-        </h2>
-        <hr />
-        <div>
-          {this.props.comments.map((comment, i) => {
-            return (
-              <div className="columns" key={i}>
-                <div
-                  className="box"
-                  style={{ marginTop: "12px", marginBottom: "12px" }}
-                >
-                  <span>{comment.votes}</span>
-                  <br />
-                  <p>
-                    <i
-                      className="fa fa-thumbs-o-up"
-                      aria-hidden="true"
-                      style={{
-                        color: "green"
-                      }}
-                    />
-                  </p>
-                  <p>
-                    <i
-                      className="fa fa-thumbs-o-down"
-                      aria-hidden="true"
-                      style={{ color: "tomato" }}
-                    />
-                  </p>
-                </div>
-                <div>
-                  <div className="column is-four-fifths">
-                    <div className="box">
-                      <p> {comment.body} </p>
-                      <p>
-                        <small>
-                          comment by: <strong>{comment.created_by}</strong>
-                        </small>
-                      </p>
+          <br />
+          <h2>
+            <strong>Comments</strong>
+          </h2>
+          <hr />
+          <div>
+            {this.props.comments.map((comment, i) => {
+              return (
+                <div className="columns" key={i}>
+                  <div
+                    className="box"
+                    style={{ marginTop: "12px", marginBottom: "12px" }}
+                  >
+                    <span>{comment.votes}</span>
+                    <br />
+                    <p>
+                      <i
+                        className="fa fa-thumbs-o-up"
+                        aria-hidden="true"
+                        style={{
+                          color: "green"
+                        }}
+                      />
+                    </p>
+                    <p>
+                      <i
+                        className="fa fa-thumbs-o-down"
+                        aria-hidden="true"
+                        style={{ color: "tomato" }}
+                      />
+                    </p>
+                  </div>
+                  <div>
+                    <div className="column is-four-fifths">
+                      <div className="box">
+                        <p> {comment.body} </p>
+                        <p>
+                          <small>
+                            comment by: <strong>{comment.created_by}</strong>
+                          </small>
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+          <hr />
+          <CommentForm id={this.props.match.params.id} />
         </div>
-        <hr />
-        <CommentForm />
       </div>
     );
   }

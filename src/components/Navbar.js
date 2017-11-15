@@ -15,29 +15,6 @@ class Navbar extends React.Component {
         <nav>
           <ul>
             <Topic />
-            <li>
-              <a href="/">Home</a>
-            </li>
-            {/* <li>
-              <IndexLink to="/" activeClassName="is-active">
-                Home
-              </IndexLink>
-            </li>
-            <li>
-              <Link to="/horizontal/" activeClassName="is-active">
-                Horizontal
-              </Link>
-            </li>
-            <li>
-              <Link to="/change-size/" activeClassName="is-active">
-                Change Size
-              </Link>
-            </li>
-            <li>
-              <Link to="/real-world/" activeClassName="is-active">
-                Real World
-              </Link>
-            </li> */}
           </ul>
         </nav>
       </header>

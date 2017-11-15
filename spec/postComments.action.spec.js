@@ -3,15 +3,16 @@ import nock from "nock";
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 
-import fetchComments, {
-  fetchCommentsRequest,
-  fetchCommentsSuccess,
-  fetchCommentsFailure
-} from "../src/actions/comments.action";
+import postComments, {
+  postCommentsRequest,
+  postCommentsSuccess,
+  postCommentsFailure
+} from "../src/actions/postComments.action";
 
 // const API_URL = "https://northcoders-news-api.herokuapp.com/api";
 const API_URL = "https://s-sharda-nc.herokuapp.com/api";
 const id = `583412925905f02e4c8e6e01`;
+const comment = "hello";
 
 const mockStore = configureMockStore([thunk]);
 
@@ -19,36 +20,37 @@ describe("async action creators", () => {
   afterEach(() => {
     nock.cleanAll();
   });
-  describe("fetchAllArticleById", () => {
-    it("dispatches FETCH_COMMENTS_SUCCESS when fetching ArticleById reponds with 200 and data", () => {
+  describe("Post Comments", () => {
+    it("dispatches POST_COMMENTS_SUCCESS when fetching ArticleById reponds with 200 and data", () => {
       nock(API_URL)
-        .get(`/articles/${id}/comments`)
-        .reply(200, { comment: [1, 2, 3] });
+        .post(`/articles/${id}/comments`)
+        .reply(200, { comments: "hello" });
 
       const expectedActions = [
-        fetchCommentsRequest(),
-        fetchCommentsSuccess([1, 2, 3])
+        postCommentsRequest(),
+        postCommentsSuccess("hello")
       ];
 
       const store = mockStore();
 
-      return store.dispatch(fetchComments(id)).then(() => {
+      return store.dispatch(postComments(id, comment)).then(() => {
         expect(store.getActions()).to.eql(expectedActions);
       });
     });
-    it("dispatches FETCH_COMMENTS_FAILURE when fetching ArticleById reponds with an error", () => {
+
+    it("dispatches POST_COMMENTS_FAILURE when fetching ArticleById reponds with an error", () => {
       nock(API_URL)
-        .get(`/articles/${id}/comments`)
+        .post(`/articles/${id}/comments`)
         .replyWithError({ message: "error" });
 
       const expectedActions = [
-        fetchCommentsRequest(),
-        fetchCommentsFailure("error")
+        postCommentsRequest(),
+        postCommentsFailure("error")
       ];
 
       const store = mockStore();
 
-      return store.dispatch(fetchComments(id)).then(() => {
+      return store.dispatch(postComments(id)).then(() => {
         expect(store.getActions()).to.eql(expectedActions);
       });
     });

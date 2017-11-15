@@ -8,6 +8,7 @@ class Navbar extends React.Component {
         <h1>
           <img
             src="https://tsuyoshiwada.github.io/react-stack-grid/images/logo.png"
+            // src="https://www.imageupload.co.uk/images/2017/11/14/Logomakr_1b6YJB.png"
             alt="React Stack Grid"
           />
         </h1>

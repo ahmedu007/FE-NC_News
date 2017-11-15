@@ -3,12 +3,21 @@ import fetchEachArticle from "../actions/eachArticle.action";
 import { connect } from "react-redux";
 import fetchComments from "../actions/comments.action";
 import CommentForm from "./CommentForm";
+import postComments from "../actions/postComments.action";
 
 class EachArticle extends React.Component {
   componentDidMount() {
     this.props.fetchEachArticle(this.props.match.params.id);
     this.props.fetchComments(this.props.match.params.id);
   }
+
+  // componentWillReceiveProps(nextProps) {
+  //   if(this.props.postComments)
+  //   this.props.postComments(
+  //     this.props.match.params.id,
+  //     this.props.postComments
+  //   );
+  // }
 
   render() {
     const article = this.props.eachArticle;
@@ -23,7 +32,7 @@ class EachArticle extends React.Component {
             <br />
             <p>
               <i
-                class="fa fa-thumbs-o-up"
+                className="fa fa-thumbs-o-up"
                 aria-hidden="true"
                 style={{
                   color: "green"
@@ -32,7 +41,7 @@ class EachArticle extends React.Component {
             </p>
             <p>
               <i
-                class="fa fa-thumbs-o-down"
+                className="fa fa-thumbs-o-down"
                 aria-hidden="true"
                 style={{ color: "tomato" }}
               />
@@ -54,9 +63,9 @@ class EachArticle extends React.Component {
         </h2>
         <hr />
         <div>
-          {this.props.comments.map(comment => {
+          {this.props.comments.map((comment, i) => {
             return (
-              <div className="columns">
+              <div className="columns" key={i}>
                 <div
                   className="box"
                   style={{ marginTop: "12px", marginBottom: "12px" }}
@@ -65,7 +74,7 @@ class EachArticle extends React.Component {
                   <br />
                   <p>
                     <i
-                      class="fa fa-thumbs-o-up"
+                      className="fa fa-thumbs-o-up"
                       aria-hidden="true"
                       style={{
                         color: "green"
@@ -74,7 +83,7 @@ class EachArticle extends React.Component {
                   </p>
                   <p>
                     <i
-                      class="fa fa-thumbs-o-down"
+                      className="fa fa-thumbs-o-down"
                       aria-hidden="true"
                       style={{ color: "tomato" }}
                     />
@@ -107,7 +116,8 @@ const mapStateToProps = state => ({
   comments: state.comments.data,
   loading: state.eachArticle.loading,
   error: state.eachArticle.error,
-  eachArticle: state.eachArticle.data
+  eachArticle: state.eachArticle.data,
+  postComments: state.postComments.data
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -116,6 +126,9 @@ const mapDispatchToProps = dispatch => ({
   },
   fetchComments: id => {
     dispatch(fetchComments(id));
+  },
+  postComments: (id, comment) => {
+    dispatch(postComments(id, comment));
   }
 });
 

@@ -9,7 +9,9 @@ import fetchArticlesByTopic, {
   fetchArticlesByTopicFailure
 } from "../src/actions/articlesByTopic.action";
 
-const API_URL = "https://northcoders-news-api.herokuapp.com/api";
+// const API_URL = "https://northcoders-news-api.herokuapp.com/api";
+const API_URL = "https://s-sharda-nc.herokuapp.com/api";
+
 const topic = "football";
 const mockStore = configureMockStore([thunk]);
 

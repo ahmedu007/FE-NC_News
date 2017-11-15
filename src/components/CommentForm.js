@@ -1,7 +1,11 @@
 import React from "react";
+import { connect } from "react-redux";
+// import postComments from "../actions/postComments.action";
 
 class CommentForm extends React.Component {
-  componentDidUpdate() {}
+  componentDidUpdate() {
+    // this.props.postComments();
+  }
   render() {
     return (
       <div className="field">
@@ -19,4 +23,17 @@ class CommentForm extends React.Component {
   }
 }
 
+// const mapStateToProps = state => ({
+//   postComments: state.postComments.data,
+//   loading: state.postComments.loading,
+//   error: state.postComments.error
+// });
+
+// const mapDispatchToProps = dispatch => ({
+//   postComments: (id, comment) => {
+//     dispatch(postComments(id, comment));
+//   }
+// });
+
+// export default connect(mapStateToProps, mapDispatchToProps)(CommentForm);
 export default CommentForm;

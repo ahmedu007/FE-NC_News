@@ -18,7 +18,7 @@ class Homepage extends React.Component {
         <div className="container">
           {this.props.articles.map((article, i) => {
             return (
-              <div className="columns">
+              <div className="columns" key={i}>
                 <div
                   className="box"
                   style={{ marginTop: "12px", marginBottom: "12px" }}
@@ -26,7 +26,7 @@ class Homepage extends React.Component {
                   <p>{article.votes}</p>
                   <a>
                     <i
-                      class="fa fa-thumbs-o-up"
+                      className="fa fa-thumbs-o-up"
                       aria-hidden="true"
                       style={{
                         color: "green"
@@ -35,7 +35,7 @@ class Homepage extends React.Component {
                   </a>{" "}
                   <a>
                     <i
-                      class="fa fa-thumbs-o-down"
+                      className="fa fa-thumbs-o-down"
                       aria-hidden="true"
                       style={{ color: "tomato" }}
                     />
@@ -45,6 +45,13 @@ class Homepage extends React.Component {
                   <div className="box" key={i} style={{ height: "100%" }}>
                     <NavLink to={`/articles/${article._id}`} key={article._id}>
                       {article.title}
+                      <p>
+                        <small>
+                          <em>
+                            by: <strong>{article.created_by}</strong>
+                          </em>
+                        </small>
+                      </p>
                     </NavLink>
                   </div>
                 </div>

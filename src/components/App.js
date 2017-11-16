@@ -7,8 +7,6 @@ import Topics from "./Topics";
 import ArticlesByTopic from "./ArticlesByTopic";
 import Navbar from "./Navbar";
 
-import Test from "./Test";
-
 import "./App.css";
 
 class App extends Component {
@@ -29,7 +27,6 @@ class App extends Component {
               <Route exact path="/" component={Homepage} />
               <Route exact path="/topics" component={Topics} />
               <Route exact path="/articles/:id" component={EachArticle} />
-              <Route exact path="/test" component={Test} />
               <Route
                 exact
                 path="/topics/:topic/articles"

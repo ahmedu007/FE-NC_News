@@ -21,8 +21,7 @@ class CommentForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.handleSubmit(this.state.newComment);
-    console.log("new comment submitted", this.state.newComment);
+    this.props.handleSubmit(this.props.id, this.state.newComment);
     this.setState({
       newComment: { comment: "" }
     });
@@ -45,7 +44,7 @@ class CommentForm extends React.Component {
           <input type="submit" value="Post comment" />
           <div className="no-shadow">
             <a href="http://www.jmichaelward.com">
-              <span class="link-text">I'm a link! </span>
+              <span className="link-text">I'm a link! </span>
             </a>
           </div>
         </form>

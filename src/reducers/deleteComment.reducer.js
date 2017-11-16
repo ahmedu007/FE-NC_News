@@ -8,19 +8,23 @@ export const initialState = {
 
 export default (prevState = initialState, action) => {
   switch (action.type) {
-    case types.POST_COMMENTS_REQUEST:
+    case types.DELETE_COMMENT_REQUEST:
       return Object.assign({}, prevState, {
         loading: !prevState.loading,
         error: null,
         data: []
       });
-    case types.POST_COMMENTS_SUCCESS:
+
+    case types.DELETE_COMMENT_SUCCESS:
       return Object.assign({}, prevState, {
         loading: false,
         error: null,
-        data: prevState.data.concat(action.payload)
+        data: prevState.data.filter(comment => {
+          comment._id !== action.comment._id;
+        })
       });
-    case types.POST_COMMENTS_FAILURE:
+
+    case types.DELETE_COMMENT_FAILURE:
       return Object.assign({}, prevState, {
         loading: false,
         error: action.payload,

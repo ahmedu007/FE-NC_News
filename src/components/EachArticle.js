@@ -2,37 +2,38 @@ import React from "react";
 import fetchEachArticle from "../actions/eachArticle.action";
 import { connect } from "react-redux";
 import fetchComments from "../actions/comments.action";
+import deleteComment from "../actions/deleteComment.action";
+import postComments from "../actions/postComments.action";
 import CommentForm from "./CommentForm";
+import CommentList from "./CommentList";
 
-import axios from "axios";
+// import axios from "axios";
 
-const API_URL = "https://s-sharda-nc.herokuapp.com/api";
+// const API_URL = "https://s-sharda-nc.herokuapp.com/api";
 
 class EachArticle extends React.Component {
   constructor() {
     super();
-    this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+    this.handleCommentDelete = this.handleCommentDelete.bind(this);
   }
   componentDidMount() {
     this.props.fetchEachArticle(this.props.match.params.id);
     this.props.fetchComments(this.props.match.params.id);
   }
 
-  handleCommentSubmit(comment) {
-    axios
-      .post(
-        `${API_URL}/articles/${this.props.match.params.id}/comments`,
-        comment
-      )
-      .then(res => {
-        console.log("New comment added: ", res.data);
-      })
-      .then(res => {
-        this.props.fetchComments(this.props.match.params.id);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+  componentWillReceiveProps(nextProps) {
+    if (
+      this.props.comments.length === nextProps.comments.length &&
+      this.props.comments.length > 0
+    ) {
+      this.props.fetchComments(this.props.match.params.id);
+    }
+  }
+
+  handleCommentDelete(event) {
+    event.preventDefault();
+    console.log("deleting the comment");
+    console.log(event.target.value);
   }
 
   render() {
@@ -82,50 +83,19 @@ class EachArticle extends React.Component {
           <div>
             {this.props.comments.map((comment, i) => {
               return (
-                <div className="columns" key={i}>
-                  <div
-                    className="box"
-                    style={{ marginTop: "12px", marginBottom: "12px" }}
-                  >
-                    <span>{comment.votes}</span>
-                    <br />
-                    <p>
-                      <i
-                        className="fa fa-thumbs-o-up"
-                        aria-hidden="true"
-                        style={{
-                          color: "green"
-                        }}
-                      />
-                    </p>
-                    <p>
-                      <i
-                        className="fa fa-thumbs-o-down"
-                        aria-hidden="true"
-                        style={{ color: "tomato" }}
-                      />
-                    </p>
-                  </div>
-                  <div>
-                    <div className="column is-four-fifths">
-                      <div className="box">
-                        <p> {comment.body} </p>
-                        <p>
-                          <small>
-                            comment by: <strong>{comment.created_by}</strong>
-                          </small>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <CommentList
+                  comment={comment}
+                  key={i}
+                  deleteComment={this.props.deleteComment}
+                />
               );
             })}
           </div>
           <hr />
           <CommentForm
             id={this.props.match.params.id}
-            handleSubmit={this.handleCommentSubmit}
+            handleSubmit={this.props.postComments}
+            fetchComments={this.props.fetchComments}
           />
         </div>
       </div>
@@ -137,7 +107,8 @@ const mapStateToProps = state => ({
   comments: state.comments.data,
   loading: state.eachArticle.loading,
   error: state.eachArticle.error,
-  eachArticle: state.eachArticle.data
+  eachArticle: state.eachArticle.data,
+  deleteState: state.deleteComment.data
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -146,6 +117,14 @@ const mapDispatchToProps = dispatch => ({
   },
   fetchComments: id => {
     dispatch(fetchComments(id));
+  },
+  postComments: (id, comment) => {
+    dispatch(postComments(id, comment)).then(res => {
+      dispatch(fetchComments(id));
+    });
+  },
+  deleteComment: id => {
+    dispatch(deleteComment(id));
   }
 });
 

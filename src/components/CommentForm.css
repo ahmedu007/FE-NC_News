@@ -1,0 +1,46 @@
+/* {
+  delay: 150ms;
+  shadow-color: rgba(0, 0, 0, 0.3);
+  shadow: 3px 0 5px 5px shadow-color, -3px 0 5px 5px shadow-color;
+} */
+
+body {
+  text-align: center;
+}
+
+.no-shadow {
+  background: rgb(0, 0, 0);
+  box-shadow: none;
+  display: block;
+  margin: 3em auto;
+  height: 3em;
+  position: relative;
+  transition: box-shadow delay ease-in-out, background delay ease-in-out;
+  width: 10em;
+}
+:hover {
+  box-shadow: shadow;
+  background: rgb(255, 255, 255);
+  transition: box-shadow delay linear, background delay linear;
+}
+.link-text {
+  color: rgb(0, 0, 0);
+  transition: color delay linear;
+}
+
+a,
+a:visited {
+  display: table;
+  height: 100%;
+  position: absolute;
+  text-decoration: none;
+  width: 100%;
+}
+
+.link-text {
+  color: rgb(255, 255, 255);
+  display: table-cell;
+  letter-spacing: 0.05em;
+  transition: color delay linear;
+  vertical-align: middle;
+}

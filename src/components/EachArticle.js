@@ -4,18 +4,35 @@ import { connect } from "react-redux";
 import fetchComments from "../actions/comments.action";
 import CommentForm from "./CommentForm";
 
+import axios from "axios";
+
+const API_URL = "https://s-sharda-nc.herokuapp.com/api";
+
 class EachArticle extends React.Component {
+  constructor() {
+    super();
+    this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+  }
   componentDidMount() {
     this.props.fetchEachArticle(this.props.match.params.id);
     this.props.fetchComments(this.props.match.params.id);
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log("new", nextProps.comments);
-    console.log("old", this.props.comments);
-    // if (this.props.comments !== nextProps.comments) {
-    //   this.props.fetchComments(this.props.match.params.id);
-    // }
+  handleCommentSubmit(comment) {
+    axios
+      .post(
+        `${API_URL}/articles/${this.props.match.params.id}/comments`,
+        comment
+      )
+      .then(res => {
+        console.log("New comment added: ", res.data);
+      })
+      .then(res => {
+        this.props.fetchComments(this.props.match.params.id);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   render() {
@@ -106,7 +123,10 @@ class EachArticle extends React.Component {
             })}
           </div>
           <hr />
-          <CommentForm id={this.props.match.params.id} />
+          <CommentForm
+            id={this.props.match.params.id}
+            handleSubmit={this.handleCommentSubmit}
+          />
         </div>
       </div>
     );

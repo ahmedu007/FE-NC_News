@@ -1,7 +1,5 @@
 import React from "react";
-import axios from "axios";
-
-const API_URL = "https://s-sharda-nc.herokuapp.com/api";
+import "./CommentForm.css";
 
 class CommentForm extends React.Component {
   constructor(props) {
@@ -22,17 +20,12 @@ class CommentForm extends React.Component {
   }
 
   handleSubmit(event) {
-    axios
-      .post(
-        `${API_URL}/articles/${this.props.id}/comments`,
-        this.state.newComment
-      )
-      .then(res => {
-        console.log("New comment added: ", res);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    event.preventDefault();
+    this.props.handleSubmit(this.state.newComment);
+    console.log("new comment submitted", this.state.newComment);
+    this.setState({
+      newComment: { comment: "" }
+    });
   }
 
   render() {
@@ -40,15 +33,21 @@ class CommentForm extends React.Component {
       <div className="field">
         <form onSubmit={this.handleSubmit}>
           <div className="control">
-            <textarea
+            <input
               className="textarea is-warning"
               type="text"
               placeholder="Add a public Comment"
               onChange={this.handleChange}
+              value={this.state.newComment.comment}
             />
           </div>
           <br />
-          <button type="submit"> Button</button>
+          <input type="submit" value="Post comment" />
+          <div className="no-shadow">
+            <a href="http://www.jmichaelward.com">
+              <span class="link-text">I'm a link! </span>
+            </a>
+          </div>
         </form>
       </div>
     );

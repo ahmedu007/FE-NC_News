@@ -7,15 +7,7 @@ import postComments from "../actions/postComments.action";
 import CommentForm from "./CommentForm";
 import CommentList from "./CommentList";
 
-// import axios from "axios";
-
-// const API_URL = "https://s-sharda-nc.herokuapp.com/api";
-
 class EachArticle extends React.Component {
-  constructor() {
-    super();
-    this.handleCommentDelete = this.handleCommentDelete.bind(this);
-  }
   componentDidMount() {
     this.props.fetchEachArticle(this.props.match.params.id);
     this.props.fetchComments(this.props.match.params.id);
@@ -28,12 +20,6 @@ class EachArticle extends React.Component {
     ) {
       this.props.fetchComments(this.props.match.params.id);
     }
-  }
-
-  handleCommentDelete(event) {
-    event.preventDefault();
-    console.log("deleting the comment");
-    console.log(event.target.value);
   }
 
   render() {

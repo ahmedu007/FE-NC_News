@@ -20,7 +20,7 @@ export default (prevState = initialState, action) => {
         loading: false,
         error: null,
         data: prevState.data.filter(comment => {
-          comment._id !== action.comment._id;
+          return comment._id !== action.comment._id;
         })
       });
 

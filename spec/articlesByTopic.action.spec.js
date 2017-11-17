@@ -2,15 +2,13 @@ import { expect } from "chai";
 import nock from "nock";
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
+import API_URL from "../src/config";
 
 import fetchArticlesByTopic, {
   fetchArticlesByTopicRequest,
   fetchArticlesByTopicSuccess,
   fetchArticlesByTopicFailure
 } from "../src/actions/articlesByTopic.action";
-
-// const API_URL = "https://northcoders-news-api.herokuapp.com/api";
-const API_URL = "https://s-sharda-nc.herokuapp.com/api";
 
 const topic = "football";
 const mockStore = configureMockStore([thunk]);

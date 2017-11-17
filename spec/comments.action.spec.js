@@ -9,8 +9,7 @@ import fetchComments, {
   fetchCommentsFailure
 } from "../src/actions/comments.action";
 
-// const API_URL = "https://northcoders-news-api.herokuapp.com/api";
-const API_URL = "https://s-sharda-nc.herokuapp.com/api";
+import API_URL from "../src/config";
 const id = `583412925905f02e4c8e6e01`;
 
 const mockStore = configureMockStore([thunk]);

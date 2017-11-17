@@ -1,0 +1,31 @@
+li.btn {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 5px 20px 5px 10px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  margin: 0px 0px 10px 0px;
+  color: #fff;
+  width: 227px;
+  transition: background-color, 1s, ease-out, 0.5s, border 0.5s;
+  position: relative;
+  overflow: hidden;
+}
+
+li.btn:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-color: #fff;
+  border-left-width: 15px;
+}
+
+li.btn::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 100px;
+  background-color: #fcba68;
+  position: absolute;
+  top: 0px;
+  left: -10px;
+  transition: left 0.5s;
+}

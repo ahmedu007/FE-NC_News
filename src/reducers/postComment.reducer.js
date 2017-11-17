@@ -10,7 +10,7 @@ export default (prevState = initialState, action) => {
   switch (action.type) {
     case types.POST_COMMENTS_REQUEST:
       return Object.assign({}, prevState, {
-        loading: !prevState.loading,
+        loading: true,
         error: null,
         data: []
       });

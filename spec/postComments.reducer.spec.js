@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import comments, { initialState } from "../src/reducers/comments.reducer";
+import comments, { initialState } from "../src/reducers/postComment.reducer";
 
 import postComments, {
   postCommentsRequest,

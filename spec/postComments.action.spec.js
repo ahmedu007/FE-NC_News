@@ -9,8 +9,7 @@ import postComments, {
   postCommentsFailure
 } from "../src/actions/postComments.action";
 
-// const API_URL = "https://northcoders-news-api.herokuapp.com/api";
-const API_URL = "https://s-sharda-nc.herokuapp.com/api";
+import API_URL from "../src/config";
 const id = `583412925905f02e4c8e6e01`;
 const comment = "hello";
 
@@ -24,7 +23,7 @@ describe("async action creators", () => {
     it("dispatches POST_COMMENTS_SUCCESS when fetching ArticleById reponds with 200 and data", () => {
       nock(API_URL)
         .post(`/articles/${id}/comments`)
-        .reply(200, { comments: "hello" });
+        .reply(200, { comment });
 
       const expectedActions = [
         postCommentsRequest(),

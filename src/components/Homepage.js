@@ -1,9 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import PT from "prop-types";
 
+import PT from "prop-types";
+import ArticlesList from "./ArticlesList";
 import fetchArticles from "../actions/articles.action";
-import { NavLink } from "react-router-dom";
+
+import Loading from "./Loading";
 
 class Homepage extends React.Component {
   componentDidMount() {
@@ -13,50 +15,15 @@ class Homepage extends React.Component {
   render() {
     return (
       <div>
-        <div className="container">
-          {this.props.articles.map((article, i) => {
-            return (
-              <div className="columns" key={i}>
-                <div
-                  className="box"
-                  style={{ marginTop: "12px", marginBottom: "12px" }}
-                >
-                  <p>{article.votes}</p>
-                  <a>
-                    <i
-                      className="fa fa-thumbs-o-up"
-                      aria-hidden="true"
-                      style={{
-                        color: "green"
-                      }}
-                    />
-                  </a>{" "}
-                  <a>
-                    <i
-                      className="fa fa-thumbs-o-down"
-                      aria-hidden="true"
-                      style={{ color: "tomato" }}
-                    />
-                  </a>
-                </div>
-                <div className="column is-four-fifths">
-                  <div className="box" key={i} style={{ height: "100%" }}>
-                    <NavLink to={`/articles/${article._id}`} key={article._id}>
-                      {article.title}
-                      <p>
-                        <small>
-                          <em>
-                            by: <strong>{article.created_by}</strong>
-                          </em>
-                        </small>
-                      </p>
-                    </NavLink>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        {this.props.loading ? (
+          <Loading />
+        ) : (
+          <div className="container">
+            {this.props.articles.map((article, i) => {
+              return <ArticlesList article={article} key={i} />;
+            })}
+          </div>
+        )}
       </div>
     );
   }

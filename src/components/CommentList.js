@@ -20,25 +20,8 @@ class CommentList extends React.Component {
           className="box"
           style={{ marginTop: "12px", marginBottom: "12px" }}
         >
-          <span>{comment.votes}</span>
           <br />
           <VoteUpDown votes={comment.votes} />
-          <p>
-            <i
-              className="fa fa-thumbs-o-up"
-              aria-hidden="true"
-              style={{
-                color: "green"
-              }}
-            />
-          </p>
-          <p>
-            <i
-              className="fa fa-thumbs-o-down"
-              aria-hidden="true"
-              style={{ color: "tomato" }}
-            />
-          </p>
         </div>
         <div>
           <div className="column is-four-fifths">

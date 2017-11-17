@@ -5,11 +5,14 @@ class VoteUpDown extends React.Component {
     super();
 
     this.state = {
-      score: 0
+      score: 0,
+      voted: false,
+      alert: false
     };
 
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -18,29 +21,81 @@ class VoteUpDown extends React.Component {
     });
   }
 
+  handleClick(event) {
+    event.preventDefault();
+    this.setState({
+      alert: false
+    });
+  }
+
   render() {
     return (
       <div>
         <div>{this.state.score}</div>
-        <button className="countUp" onClick={this.increment}>
-          UP
-        </button>
-        <button className="countDown" onClick={this.decrement}>
-          DOWN
-        </button>
+        <a onClick={this.increment}>
+          <i
+            className="fa fa-thumbs-o-up"
+            aria-hidden="true"
+            style={{
+              color: "green"
+            }}
+          />
+        </a>
+        <a onClick={this.decrement}>
+          <i
+            className="fa fa-thumbs-o-down"
+            aria-hidden="true"
+            style={{ color: "tomato" }}
+          />
+        </a>
+        <div className={this.state.alert ? "modal is-active" : "modal"}>
+          <div className="modal-background" />
+          <div className="modal-content">
+            <article className="message is-dark">
+              <div className="message-header">
+                <p>Dark</p>
+                <button
+                  className="delete"
+                  aria-label="delete"
+                  onClick={this.handleClick}
+                />
+              </div>
+              <div className="message-body">
+                <p>You can only Vote once</p>
+              </div>
+            </article>
+          </div>
+          <button
+            className="modal-close is-large"
+            aria-label="close"
+            onClick={this.handleClick}
+          />
+        </div>
       </div>
     );
   }
 
   increment() {
+    if (this.state.voted) {
+      this.setState({
+        alert: true
+      });
+    }
     this.setState({
-      score: this.state.score + 1
+      score: this.state.score + 1,
+      voted: true
     });
   }
 
   decrement() {
+    if (this.state.voted) {
+      this.setState({
+        alert: true
+      });
+    }
     this.setState({
-      score: this.state.score - 1
+      score: this.state.score - 1,
+      voted: true
     });
   }
 }

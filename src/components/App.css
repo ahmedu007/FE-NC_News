@@ -14,7 +14,7 @@ body p i {
 }
 
 a {
-  color: #ddd;
+  color: rgb(110, 110, 110);
 }
 span {
   font-size: 1em;
@@ -70,11 +70,13 @@ span {
   bottom: 0;
   width: 100%;
   text-align: center;
-  padding: 70px;
-  background: rgb(110, 110, 110);
+  padding: 5%;
+  /* background: rgb(0, 0, 0); */
+  background-image: url("https://i.pinimg.com/originals/8a/1c/ba/8a1cbaa2e04b77fead30559e91a29bc5.jpg");
 }
 
-.footer nav {
+.footer a {
+  color: #ffffff;
 }
 
 .footer ul {
@@ -87,7 +89,7 @@ span {
 .footer li {
   display: inline-block;
   margin: 0 0 0 2em;
-  font-size: 1rem;
+  font-size: 2rem;
 }
 
 @keyframes App-logo-spin {

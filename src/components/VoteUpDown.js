@@ -21,6 +21,14 @@ class VoteUpDown extends React.Component {
     });
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.votes > 0) {
+      this.setState({
+        score: nextProps.votes
+      });
+    }
+  }
+
   handleClick(event) {
     event.preventDefault();
     this.setState({
@@ -53,7 +61,7 @@ class VoteUpDown extends React.Component {
           <div className="modal-content">
             <article className="message is-dark">
               <div className="message-header">
-                <p>Dark</p>
+                <p>Invalid Request</p>
                 <button
                   className="delete"
                   aria-label="delete"
@@ -65,11 +73,6 @@ class VoteUpDown extends React.Component {
               </div>
             </article>
           </div>
-          <button
-            className="modal-close is-large"
-            aria-label="close"
-            onClick={this.handleClick}
-          />
         </div>
       </div>
     );
@@ -81,10 +84,12 @@ class VoteUpDown extends React.Component {
         alert: true
       });
     }
-    this.setState({
-      score: this.state.score + 1,
-      voted: true
-    });
+    if (!this.state.voted) {
+      this.setState({
+        score: this.state.score + 1,
+        voted: true
+      });
+    }
   }
 
   decrement() {
@@ -93,10 +98,12 @@ class VoteUpDown extends React.Component {
         alert: true
       });
     }
-    this.setState({
-      score: this.state.score - 1,
-      voted: true
-    });
+    if (!this.state.voted) {
+      this.setState({
+        score: this.state.score - 1,
+        voted: true
+      });
+    }
   }
 }
 

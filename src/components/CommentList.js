@@ -24,7 +24,7 @@ class CommentList extends React.Component {
           <VoteUpDown votes={comment.votes} />
         </div>
         <div>
-          <div className="column is-four-fifths">
+          <div className="column is-four-fifths" style={{ width: "100%" }}>
             <div className="box">
               <p> {comment.body} </p>
               <p>
@@ -32,10 +32,10 @@ class CommentList extends React.Component {
                   comment by: <strong>{comment.created_by}</strong>
                 </small>
               </p>
-              <p className="field">
+              <p className="field" style={{ textAlign: "right" }}>
                 <input
                   type="submit"
-                  className="button is-danger is-outlined"
+                  className="button is-dark is-outlined"
                   onClick={this.handleCommentDelete}
                   value={`Delete`}
                   name={comment._id}

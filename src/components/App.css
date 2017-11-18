@@ -29,9 +29,6 @@ span {
   padding: 220px 30px;
 }
 
-.header {
-}
-
 .header h1 {
   position: fixed;
   top: 30px;
@@ -71,8 +68,7 @@ span {
   width: 100%;
   text-align: center;
   padding: 5%;
-  /* background: rgb(0, 0, 0); */
-  background-image: url("https://i.pinimg.com/originals/8a/1c/ba/8a1cbaa2e04b77fead30559e91a29bc5.jpg");
+  background-image: url("footer.jpg");
 }
 
 .footer a {

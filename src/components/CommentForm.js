@@ -33,7 +33,7 @@ class CommentForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div className="control">
             <input
-              className="textarea is-warning"
+              className="textarea is-dark"
               type="text"
               placeholder="Add a public Comment"
               onChange={this.handleChange}
@@ -41,12 +41,12 @@ class CommentForm extends React.Component {
             />
           </div>
           <br />
-          <input type="submit" value="Post comment" />
-          <div className="no-shadow">
-            <a href="http://www.jmichaelward.com">
-              <span className="link-text">I'm a link! </span>
-            </a>
-          </div>
+          <input
+            type="submit"
+            className="button is-dark is-outlined"
+            value="Post Comment"
+            style={{ color: "white", borderColor: "white" }}
+          />
         </form>
       </div>
     );

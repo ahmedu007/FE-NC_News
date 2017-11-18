@@ -3,3 +3,47 @@
 body {
   font-family: "PT Sans Narrow", sans-serif;
 }
+
+#container {
+  width: 715px;
+  height: 230px;
+  margin: 50px auto;
+}
+
+.button-4 {
+  width: 140px;
+  height: 50px;
+  border: 2px solid #ffffff;
+  float: left;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0 0 40px 50px;
+}
+.button-4 a {
+  font-family: arial;
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+  line-height: 50px;
+  transition: all 0.5s ease;
+  z-index: 2;
+  position: relative;
+}
+.eff-4 {
+  width: 140px;
+  height: 50px;
+  left: -140px;
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+.button-4:hover .eff-4 {
+  left: 0;
+}
+.button-4:hover a {
+  color: #fff;
+}

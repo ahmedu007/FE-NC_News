@@ -6,6 +6,7 @@ import deleteComment from "../actions/deleteComment.action";
 import postComments from "../actions/postComments.action";
 import CommentForm from "./CommentForm";
 import CommentList from "./CommentList";
+import VoteUpDown from "./VoteUpDown";
 
 class EachArticle extends React.Component {
   componentDidMount() {
@@ -26,64 +27,52 @@ class EachArticle extends React.Component {
     const article = this.props.eachArticle;
     return (
       <div className="container">
-        <div className="box">
-          <div className="columns">
-            <div
-              className="box"
-              style={{ marginTop: "12px", marginBottom: "12px" }}
-            >
-              <p>{article.votes}</p>
+        <div className="columns">
+          <div
+            className="box"
+            style={{ marginTop: "12px", marginBottom: "12px" }}
+          >
+            <br />
+            <VoteUpDown votes={article.votes} />
+          </div>
+          <div className="column is-four-fifths">
+            <div className="box">
+              <strong>{article.title} </strong>
+              <br />
+              <br />
+              <p>{article.body}</p>
               <br />
               <p>
-                <i
-                  className="fa fa-thumbs-o-up"
-                  aria-hidden="true"
-                  style={{
-                    color: "green"
-                  }}
-                />
-              </p>
-              <p>
-                <i
-                  className="fa fa-thumbs-o-down"
-                  aria-hidden="true"
-                  style={{ color: "tomato" }}
-                />
+                by:{" "}
+                <small>
+                  <strong>{article.created_by}</strong>
+                </small>
               </p>
             </div>
-            <div className="column is-four-fifths">
-              <div className="box">
-                <strong>{article.title} </strong>
-                <p>{article.body}</p>
-                <p>
-                  <small>{article.created_by}</small>
-                </p>
-              </div>
-            </div>
           </div>
-          <br />
-          <h2>
-            <strong>Comments</strong>
-          </h2>
-          <hr />
-          <div>
-            {this.props.comments.map((comment, i) => {
-              return (
-                <CommentList
-                  comment={comment}
-                  key={i}
-                  deleteComment={this.props.deleteComment}
-                />
-              );
-            })}
-          </div>
-          <hr />
-          <CommentForm
-            id={this.props.match.params.id}
-            handleSubmit={this.props.postComments}
-            fetchComments={this.props.fetchComments}
-          />
         </div>
+        <br />
+        <h2>
+          <strong>Comments</strong>
+        </h2>
+        <hr />
+        <div>
+          {this.props.comments.map((comment, i) => {
+            return (
+              <CommentList
+                comment={comment}
+                key={i}
+                deleteComment={this.props.deleteComment}
+              />
+            );
+          })}
+        </div>
+        <hr />
+        <CommentForm
+          id={this.props.match.params.id}
+          handleSubmit={this.props.postComments}
+          fetchComments={this.props.fetchComments}
+        />
       </div>
     );
   }

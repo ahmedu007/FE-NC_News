@@ -19,12 +19,6 @@ class App extends Component {
         <div>
           <Navbar />
           <div className="App">
-            {/* <header className="App-header">
-            <h1 className="App-title">Welcome to React</h1>
-            <ul>
-              <Topic />
-            </ul>
-          </header> */}
             <br />
             <Switch>
               <Route exact path="/" component={Homepage} />

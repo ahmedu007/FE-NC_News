@@ -9,7 +9,7 @@ class Loading extends React.Component {
   render() {
     return (
       <div>
-        <img src={loading} alt="loading Image" />
+        <img src={loading} alt="Loading page" />
       </div>
     );
   }

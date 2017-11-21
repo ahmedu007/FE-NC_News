@@ -8,6 +8,8 @@ import ArticlesByTopic from "./ArticlesByTopic";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
+import NotFound from "./NotFound";
+
 import "./App.css";
 
 class App extends Component {
@@ -27,6 +29,7 @@ class App extends Component {
                 path="/topics/:topic/articles"
                 component={ArticlesByTopic}
               />
+              <Route exact path="*" component={NotFound} />
             </Switch>
           </div>
           <Footer />

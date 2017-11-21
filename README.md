@@ -8,6 +8,11 @@ https://ncnews-umair.firebaseapp.com/
 
 ### Full C.R.U.D news app
 
+## API End points 
+```
+https://umair-ncnews-be.herokuapp.com/
+```
+
 ## Instructions
 
 In the terminal enter:

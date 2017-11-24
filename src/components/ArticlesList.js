@@ -11,10 +11,7 @@ class ArticlesList extends React.Component {
     const { article } = this.props;
     return (
       <div className="columns">
-        <div
-          className="box"
-          style={{ marginTop: "12px", marginBottom: "12px" }}
-        >
+        <div className="box" style={{ marginTop: "1%", marginBottom: "1%" }}>
           <VoteUpDown votes={article.votes} />
         </div>
         <div className="column is-four-fifths">

@@ -30,7 +30,7 @@ span {
 }
 
 .header h1 {
-  position: fixed;
+  position: absolute;
   top: 30px;
   left: 30px;
   z-index: 1000;
@@ -39,7 +39,7 @@ span {
 }
 
 .header nav {
-  position: fixed;
+  position: absolute;
   top: 30px;
   left: 210px;
   z-index: 1000;

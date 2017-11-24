@@ -40,22 +40,26 @@ class VoteUpDown extends React.Component {
     return (
       <div>
         <div>{this.state.score}</div>
-        <a onClick={this.increment}>
-          <i
-            className="fa fa-thumbs-o-up"
-            aria-hidden="true"
-            style={{
-              color: "green"
-            }}
-          />
-        </a>
-        <a onClick={this.decrement}>
-          <i
-            className="fa fa-thumbs-o-down"
-            aria-hidden="true"
-            style={{ color: "tomato" }}
-          />
-        </a>
+        <p>
+          <a onClick={this.increment}>
+            <i
+              className="fa fa-thumbs-o-up"
+              aria-hidden="true"
+              style={{
+                color: "green"
+              }}
+            />
+          </a>
+        </p>
+        <p>
+          <a onClick={this.decrement}>
+            <i
+              className="fa fa-thumbs-o-down"
+              aria-hidden="true"
+              style={{ color: "tomato" }}
+            />
+          </a>
+        </p>
         <div className={this.state.alert ? "modal is-active" : "modal"}>
           <div className="modal-background" />
           <div className="modal-content">

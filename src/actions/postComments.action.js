@@ -22,12 +22,11 @@ export default (id, comment) => {
     return axios
       .post(`${API_URL}/articles/${id}/comments`, comment)
       .then(res => {
-        console.log(res.data, comment);
         dispatch(postCommentsSuccess(res.data.comment));
       })
       .catch(error => {
-        console.log(error);
         dispatch(postCommentsFailure(error.message));
+        console.error(error);
       });
   };
 };

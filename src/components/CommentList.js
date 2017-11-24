@@ -9,17 +9,13 @@ class CommentList extends React.Component {
 
   handleCommentDelete(event) {
     this.props.deleteComment(event.target.name);
-    console.log("comment deleted");
   }
 
   render() {
     const comment = this.props.comment;
     return (
       <div className="columns">
-        <div
-          className="box"
-          style={{ marginTop: "12px", marginBottom: "12px" }}
-        >
+        <div className="box" style={{ marginTop: "1%", marginBottom: "1%" }}>
           <br />
           <VoteUpDown votes={comment.votes} />
         </div>

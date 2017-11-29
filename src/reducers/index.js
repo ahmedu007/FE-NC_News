@@ -5,7 +5,6 @@ import eachArticle from "./eachArticle.reducer";
 import topics from "./topics.reducer";
 import articlesByTopic from "./articlesByTopic.reducer";
 import comments from "./comments.reducer";
-import postComments from "./postComment.reducer";
 import deleteComment from "./deleteComment.reducer";
 
 const reducer = combineReducers({
@@ -14,7 +13,6 @@ const reducer = combineReducers({
   topics,
   articlesByTopic,
   comments,
-  postComments,
   deleteComment
 });
 

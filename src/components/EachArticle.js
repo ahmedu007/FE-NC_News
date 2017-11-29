@@ -57,15 +57,19 @@ class EachArticle extends React.Component {
         </h2>
         <hr />
         <div>
-          {this.props.comments.map((comment, i) => {
-            return (
-              <CommentList
-                comment={comment}
-                key={i}
-                deleteComment={this.props.deleteComment}
-              />
-            );
-          })}
+          {this.props.comments
+            .sort((a, b) => {
+              return b.votes - a.votes;
+            })
+            .map((comment, i) => {
+              return (
+                <CommentList
+                  comment={comment}
+                  key={i}
+                  deleteComment={this.props.deleteComment}
+                />
+              );
+            })}
         </div>
         <hr />
         <CommentForm

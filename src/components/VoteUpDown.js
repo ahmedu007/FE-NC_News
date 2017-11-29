@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+import API_URL from "../config";
 
 class VoteUpDown extends React.Component {
   constructor() {
@@ -34,6 +36,50 @@ class VoteUpDown extends React.Component {
     this.setState({
       alert: false
     });
+  }
+
+  increment() {
+    if (this.state.voted) {
+      this.setState({
+        alert: true
+      });
+    }
+    if (!this.state.voted) {
+      this.setState({
+        score: this.state.score + 1,
+        voted: true
+      });
+      axios
+        .put(`${API_URL}/comments/${this.props.id}?vote=UP`)
+        .then(res => {
+          console.assert(res.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+  }
+
+  decrement() {
+    if (this.state.voted) {
+      this.setState({
+        alert: true
+      });
+    }
+    if (!this.state.voted) {
+      this.setState({
+        score: this.state.score - 1,
+        voted: true
+      });
+      axios
+        .put(`${API_URL}/comments/${this.props.id}?vote=DOWN`)
+        .then(res => {
+          console.assert(res.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
   }
 
   render() {
@@ -80,34 +126,6 @@ class VoteUpDown extends React.Component {
         </div>
       </div>
     );
-  }
-
-  increment() {
-    if (this.state.voted) {
-      this.setState({
-        alert: true
-      });
-    }
-    if (!this.state.voted) {
-      this.setState({
-        score: this.state.score + 1,
-        voted: true
-      });
-    }
-  }
-
-  decrement() {
-    if (this.state.voted) {
-      this.setState({
-        alert: true
-      });
-    }
-    if (!this.state.voted) {
-      this.setState({
-        score: this.state.score - 1,
-        voted: true
-      });
-    }
   }
 }
 

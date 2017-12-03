@@ -3,6 +3,7 @@ import PT from "prop-types";
 import { connect } from "react-redux";
 import fetchArticlesByTopic from "../actions/articlesByTopic.action";
 import { NavLink } from "react-router-dom";
+import VoteUpDown from "./VoteUpDown";
 
 class ArticlesByTopic extends React.Component {
   componentDidMount() {
@@ -26,16 +27,30 @@ class ArticlesByTopic extends React.Component {
       <div className="container">
         {this.props.articlesByTopic.map((article, i) => {
           return (
-            <div className="box" key={i}>
-              <NavLink to={`/articles/${article._id}`}>
-                <section>{article.votes}</section>
-                <span> {article.title}</span>
-                <p>
-                  <em>
-                    <small>by: {article.created_by}</small>
-                  </em>
-                </p>
-              </NavLink>
+            <div className="columns">
+              <div
+                className="box"
+                style={{ marginTop: "1%", marginBottom: "1%" }}
+              >
+                <VoteUpDown
+                  type="articles"
+                  votes={article.votes}
+                  id={article._id}
+                />
+              </div>
+              <div className="column is-four-fifths">
+                <div className="box" key={i}>
+                  <NavLink to={`/articles/${article._id}`}>
+                    <section>{article.votes}</section>
+                    <span> {article.title}</span>
+                    <p>
+                      <em>
+                        <small>by: {article.created_by}</small>
+                      </em>
+                    </p>
+                  </NavLink>
+                </div>
+              </div>
             </div>
           );
         })}

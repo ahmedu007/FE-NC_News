@@ -56,7 +56,7 @@ class EachArticle extends React.Component {
           </div>
         </div>
         <br />
-        <h2>
+        <h2 style={{ fontSize: "1.5rem" }}>
           <strong>Comments</strong>
         </h2>
         <hr />

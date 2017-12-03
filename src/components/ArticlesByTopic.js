@@ -39,7 +39,7 @@ class ArticlesByTopic extends React.Component {
                 />
               </div>
               <div className="column is-four-fifths">
-                <div className="box" key={i}>
+                <div className="box" key={i} style={{ height: "156px" }}>
                   <NavLink to={`/articles/${article._id}`}>
                     <section>{article.votes}</section>
                     <span> {article.title}</span>

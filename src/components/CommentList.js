@@ -19,25 +19,23 @@ class CommentList extends React.Component {
           <br />
           <VoteUpDown votes={comment.votes} id={comment._id} type="comments" />
         </div>
-        <div>
-          <div className="column is-four-fifths" style={{ width: "100%" }}>
-            <div className="box">
-              <p> {comment.body} </p>
-              <p>
-                <small>
-                  comment by: <strong>{comment.created_by}</strong>
-                </small>
-              </p>
-              <p className="field" style={{ textAlign: "right" }}>
-                <input
-                  type="submit"
-                  className="button is-dark is-outlined"
-                  onClick={this.handleCommentDelete}
-                  value={`Delete`}
-                  name={comment._id}
-                />
-              </p>
-            </div>
+        <div className="column is-four-fifths">
+          <div className="box" style={{ minHeight: "186px" }}>
+            <p> {comment.body} </p>
+            <p>
+              <small>
+                comment by: <strong>{comment.created_by}</strong>
+              </small>
+            </p>
+            <p className="field" style={{ textAlign: "right" }}>
+              <input
+                type="submit"
+                className="button is-dark is-outlined"
+                onClick={this.handleCommentDelete}
+                value={`Delete`}
+                name={comment._id}
+              />
+            </p>
           </div>
         </div>
       </div>

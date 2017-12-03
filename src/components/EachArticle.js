@@ -33,7 +33,11 @@ class EachArticle extends React.Component {
             style={{ marginTop: "12px", marginBottom: "12px" }}
           >
             <br />
-            <VoteUpDown votes={article.votes} />
+            <VoteUpDown
+              votes={article.votes}
+              type="articles"
+              id={article._id}
+            />
           </div>
           <div className="column is-four-fifths">
             <div className="box">

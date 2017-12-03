@@ -50,7 +50,7 @@ class VoteUpDown extends React.Component {
         voted: true
       });
       axios
-        .put(`${API_URL}/comments/${this.props.id}?vote=UP`)
+        .put(`${API_URL}/${this.props.type}/${this.props.id}?vote=UP`)
         .then(res => {
           console.assert(res.data);
         })
@@ -85,7 +85,9 @@ class VoteUpDown extends React.Component {
   render() {
     return (
       <div>
-        <div>{this.state.score}</div>
+        <div>
+          <strong>{this.state.score}</strong>
+        </div>
         <p>
           <a onClick={this.increment}>
             <i

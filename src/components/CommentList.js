@@ -17,7 +17,7 @@ class CommentList extends React.Component {
       <div className="columns">
         <div className="box" style={{ marginTop: "1%", marginBottom: "1%" }}>
           <br />
-          <VoteUpDown votes={comment.votes} id={comment._id} />
+          <VoteUpDown votes={comment.votes} id={comment._id} type="comments" />
         </div>
         <div>
           <div className="column is-four-fifths" style={{ width: "100%" }}>

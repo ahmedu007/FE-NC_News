@@ -72,7 +72,7 @@ class VoteUpDown extends React.Component {
         voted: true
       });
       axios
-        .put(`${API_URL}/comments/${this.props.id}?vote=DOWN`)
+        .put(`${API_URL}/${this.props.type}/${this.props.id}?vote=DOWN`)
         .then(res => {
           console.assert(res.data);
         })
@@ -89,23 +89,27 @@ class VoteUpDown extends React.Component {
           <strong>{this.state.score}</strong>
         </div>
         <p>
-          <a onClick={this.increment}>
-            <i
-              className="fa fa-thumbs-o-up"
-              aria-hidden="true"
-              style={{
-                color: "green"
-              }}
-            />
+          <a className="button is-medium" onClick={this.increment}>
+            <span className="icon">
+              <i
+                className="fa fa-thumbs-o-up"
+                aria-hidden="true"
+                style={{
+                  color: "green"
+                }}
+              />
+            </span>
           </a>
         </p>
         <p>
-          <a onClick={this.decrement}>
-            <i
-              className="fa fa-thumbs-o-down"
-              aria-hidden="true"
-              style={{ color: "tomato" }}
-            />
+          <a className="button is-medium" onClick={this.decrement}>
+            <span className="icon">
+              <i
+                className="fa fa-thumbs-o-down"
+                aria-hidden="true"
+                style={{ color: "tomato" }}
+              />
+            </span>
           </a>
         </p>
         <div className={this.state.alert ? "modal is-active" : "modal"}>

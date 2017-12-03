@@ -49,7 +49,7 @@ and navigate to the following URL in your browser.
 http://localhost:3000/
 ```
 
-To run tests, please enter:
+To run tests, please open another terminal window and enter:
 
 ```
 npm test

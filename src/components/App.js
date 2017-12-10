@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Homepage from "./Homepage";
@@ -12,31 +12,29 @@ import NotFound from "./NotFound";
 
 import "./App.css";
 
-class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <div>
-          <Navbar />
-          <div className="App">
-            <br />
-            <Switch>
-              <Route exact path="/" component={Homepage} />
-              <Route exact path="/topics" component={Topics} />
-              <Route exact path="/articles/:id" component={EachArticle} />
-              <Route
-                exact
-                path="/topics/:topic/articles"
-                component={ArticlesByTopic}
-              />
-              <Route exact path="*" component={NotFound} />
-            </Switch>
-          </div>
-          <Footer />
+const App = () => {
+  return (
+    <BrowserRouter>
+      <div>
+        <Navbar />
+        <div className="App">
+          <br />
+          <Switch>
+            <Route exact path="/" component={Homepage} />
+            <Route exact path="/topics" component={Topics} />
+            <Route exact path="/articles/:id" component={EachArticle} />
+            <Route
+              exact
+              path="/topics/:topic/articles"
+              component={ArticlesByTopic}
+            />
+            <Route exact path="*" component={NotFound} />
+          </Switch>
         </div>
-      </BrowserRouter>
-    );
-  }
-}
+        <Footer />
+      </div>
+    </BrowserRouter>
+  );
+};
 
 export default App;

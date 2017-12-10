@@ -12,7 +12,6 @@ class Topic extends React.Component {
   }
 
   render() {
-    // const { topics, loading, error } = this.props;
     return (
       <div className="columns" style={{ width: "120%" }}>
         <a href="/" className="column">

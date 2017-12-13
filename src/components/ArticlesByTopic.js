@@ -27,7 +27,7 @@ class ArticlesByTopic extends React.Component {
       <div className="container">
         {this.props.articlesByTopic.map((article, i) => {
           return (
-            <div className="columns">
+            <div className="columns" key={i}>
               <div
                 className="box"
                 style={{ marginTop: "1%", marginBottom: "1%" }}
@@ -67,9 +67,9 @@ ArticlesByTopic.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  articlesByTopic: state.articlesByTopic.data,
-  loading: state.articlesByTopic.loading,
-  error: state.articlesByTopic.error
+  articlesByTopic: state.topics.data,
+  loading: state.topics.loading,
+  error: state.topics.error
 });
 
 const mapDispatchToProps = dispatch => ({

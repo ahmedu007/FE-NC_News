@@ -44,7 +44,7 @@ Topic.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  topics: state.topics.data,
+  topics: state.topics.topics,
   loading: state.topics.loading,
   error: state.topics.error
 });

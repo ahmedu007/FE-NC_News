@@ -88,9 +88,9 @@ class EachArticle extends React.Component {
 
 const mapStateToProps = state => ({
   comments: state.comments.data,
-  loading: state.eachArticle.loading,
-  error: state.eachArticle.error,
-  eachArticle: state.eachArticle.data,
+  loading: state.articles.loading,
+  error: state.articles.error,
+  eachArticle: state.articles.data,
   deleteState: state.deleteComment.data
 });
 

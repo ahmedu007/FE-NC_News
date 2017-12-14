@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import comments, { initialState } from "../src/reducers/postComment.reducer";
+import comments, { initialState } from "../src/reducers/comments.reducer";
 
 import postComments, {
   postCommentsRequest,
@@ -35,6 +35,7 @@ describe("post comments reducer", () => {
     expect(newState.loading).to.be.false;
     expect(newState.error).to.be.null;
     expect(newState.data).to.eql(data);
+    expect(newState).to.not.equal(initialState);
   });
   it("handles FETCH_COMMENTS_FAILURE", () => {
     const prevState = comments(undefined, postCommentsRequest());
@@ -44,5 +45,6 @@ describe("post comments reducer", () => {
     expect(newState.loading).to.be.false;
     expect(newState.error).to.eql(error);
     expect(newState.data).to.eql([]);
+    expect(newState).to.not.equal(initialState);
   });
 });

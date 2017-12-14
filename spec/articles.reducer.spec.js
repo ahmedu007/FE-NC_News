@@ -27,6 +27,7 @@ describe("articles reducer", () => {
     expect(newState.loading).to.be.true;
     expect(newState.error).to.be.null;
     expect(newState.data).to.eql([]);
+    expect(newState).to.not.equal(initialState);
   });
   it("handles FETCH_ARTICLES_SUCCESS", () => {
     const prevState = articlesReducer(undefined, fetchArticlesRequest());
@@ -36,6 +37,7 @@ describe("articles reducer", () => {
     expect(newState.loading).to.be.false;
     expect(newState.error).to.be.null;
     expect(newState.data).to.eql(data);
+    expect(newState).to.not.equal(initialState);
   });
   it("handles FETCH_ARTICLES_FAILURE", () => {
     const prevState = articlesReducer(undefined, fetchArticlesRequest());
@@ -45,5 +47,6 @@ describe("articles reducer", () => {
     expect(newState.loading).to.be.false;
     expect(newState.error).to.eql(error);
     expect(newState.data).to.eql([]);
+    expect(newState).to.not.equal(initialState);
   });
 });

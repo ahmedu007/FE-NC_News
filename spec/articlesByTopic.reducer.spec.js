@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import articlesByTopic, {
   initialState
-} from "../src/reducers/articlesByTopic.reducer";
+} from "../src/reducers/articles.reducer";
 
 import fetchArticlesByTopic, {
   fetchArticlesByTopicRequest,
@@ -25,9 +25,9 @@ describe("articles reducer", () => {
   it("handles FETCH_ARTICLES_REQUEST", () => {
     const action = fetchArticlesByTopicRequest();
     const newState = articlesByTopic(undefined, action);
-    expect(newState.loading).to.be.true;
     expect(newState.error).to.be.null;
     expect(newState.data).to.eql([]);
+    expect(newState).to.not.equal(initialState);
   });
   it("handles FETCH_ARTICLES_SUCCESS", () => {
     const prevState = articlesByTopic(undefined, fetchArticlesByTopicRequest());
@@ -37,6 +37,7 @@ describe("articles reducer", () => {
     expect(newState.loading).to.be.false;
     expect(newState.error).to.be.null;
     expect(newState.data).to.eql(data);
+    expect(newState).to.not.equal(initialState);
   });
   it("handles FETCH_ARTICLES_FAILURE", () => {
     const prevState = articlesByTopic(undefined, fetchArticlesByTopicRequest());
@@ -46,5 +47,6 @@ describe("articles reducer", () => {
     expect(newState.loading).to.be.false;
     expect(newState.error).to.eql(error);
     expect(newState.data).to.eql([]);
+    expect(newState).to.not.equal(initialState);
   });
 });

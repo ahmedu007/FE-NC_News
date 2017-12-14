@@ -16,6 +16,7 @@ export default (prevState = initialState, action) => {
       });
 
     case types.DELETE_COMMENT_SUCCESS:
+      console.log(action);
       return Object.assign({}, prevState, {
         loading: false,
         error: null,

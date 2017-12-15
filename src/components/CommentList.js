@@ -22,6 +22,7 @@ class CommentList extends React.Component {
         <div className="column is-four-fifths">
           <div className="box" style={{ minHeight: "186px" }}>
             <p> {comment.body} </p>
+            <br />
             <p>
               <small>
                 comment by: <strong>{comment.created_by}</strong>

@@ -13,6 +13,9 @@ const ArticlesList = props => {
         <div className="box" style={{ height: "156px" }}>
           <NavLink to={`/articles/${article._id}`} key={article._id}>
             {article.title}
+            <br />
+            <br />
+            <br />
             <p>
               <small>
                 <em>

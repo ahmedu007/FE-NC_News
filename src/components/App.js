@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import ReallySmoothScroll from "really-smooth-scroll";
 
 import Homepage from "./Homepage";
 import EachArticle from "./EachArticle";
@@ -11,6 +12,13 @@ import Footer from "./Footer";
 import NotFound from "./NotFound";
 
 import "./App.css";
+
+ReallySmoothScroll.shim();
+
+ReallySmoothScroll.config({
+  mousewheelSensitivity: 8,
+  keydownSensitivity: 8
+});
 
 const App = () => {
   return (

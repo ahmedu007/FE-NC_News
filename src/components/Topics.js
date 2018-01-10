@@ -13,7 +13,7 @@ class Topic extends React.Component {
 
   render() {
     return (
-      <div style={{ paddingLeft: "5%" }}>
+      <div style={{ paddingLeft: "5%", width: "85%" }}>
         <a href="/">
           <li className="btn">Home</li>
         </a>

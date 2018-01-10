@@ -25,19 +25,21 @@ const App = () => {
     <BrowserRouter>
       <div>
         <Navbar />
-        <div className="App">
-          <br />
-          <Switch>
-            <Route exact path="/" component={Homepage} />
-            <Route exact path="/topics" component={Topics} />
-            <Route exact path="/articles/:id" component={EachArticle} />
-            <Route
-              exact
-              path="/topics/:topic/articles"
-              component={ArticlesByTopic}
-            />
-            <Route exact path="*" component={NotFound} />
-          </Switch>
+        <div className="container" style={{ width: "75%" }}>
+          <div className="App">
+            <br />
+            <Switch>
+              <Route exact path="/" component={Homepage} />
+              <Route exact path="/topics" component={Topics} />
+              <Route exact path="/articles/:id" component={EachArticle} />
+              <Route
+                exact
+                path="/topics/:topic/articles"
+                component={ArticlesByTopic}
+              />
+              <Route exact path="*" component={NotFound} />
+            </Switch>
+          </div>
         </div>
         <Footer />
       </div>

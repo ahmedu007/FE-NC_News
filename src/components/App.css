@@ -30,7 +30,7 @@ span {
 }
 
 .header h1 {
-  position: absolute;
+  position: fixed;
   top: 30px;
   left: 30px;
   z-index: 1000;
@@ -39,7 +39,7 @@ span {
 }
 
 .header nav {
-  position: absolute;
+  position: relative;
   top: 30px;
   left: 210px;
   z-index: 1000;
@@ -94,5 +94,36 @@ span {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 1026px) {
+  #logo {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .header h1 {
+    top: 15px;
+    left: 15px;
+    width: 120px;
+  }
+
+  .header nav {
+    top: 15px;
+    left: 135px;
+  }
+
+  .header li {
+    display: block;
+    margin-left: 1em;
+  }
+}
+
+@media screen and (min-width: 1408px) {
+  .container {
+    max-width: auto;
+    width: auto;
   }
 }

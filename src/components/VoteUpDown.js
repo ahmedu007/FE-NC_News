@@ -88,7 +88,7 @@ class VoteUpDown extends React.Component {
         <div>
           <strong>{this.state.score}</strong>
         </div>
-        <p>
+        <span>
           <a className="button is-medium" onClick={this.increment}>
             <span className="icon">
               <i
@@ -100,8 +100,8 @@ class VoteUpDown extends React.Component {
               />
             </span>
           </a>
-        </p>
-        <p>
+        </span>
+        <span>
           <a className="button is-medium" onClick={this.decrement}>
             <span className="icon">
               <i
@@ -111,7 +111,7 @@ class VoteUpDown extends React.Component {
               />
             </span>
           </a>
-        </p>
+        </span>
         <div className={this.state.alert ? "modal is-active" : "modal"}>
           <div className="modal-background" />
           <div className="modal-content">

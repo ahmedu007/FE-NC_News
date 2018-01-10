@@ -13,8 +13,8 @@ class Topic extends React.Component {
 
   render() {
     return (
-      <div className="columns" style={{ width: "120%" }}>
-        <a href="/" className="column">
+      <div style={{ paddingLeft: "5%" }}>
+        <a href="/">
           <li className="btn">Home</li>
         </a>
         {this.props.topics.map((topic, i) => {
@@ -23,7 +23,6 @@ class Topic extends React.Component {
               to={`/topics/${topic.title}/articles`}
               key={topic.title}
               activeClassName="is-active"
-              className="column"
             >
               <li className="btn" key={i}>
                 {topic.title}

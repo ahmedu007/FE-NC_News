@@ -28,18 +28,17 @@ class EachArticle extends React.Component {
     return (
       <div className="container">
         <div className="columns">
-          <div
-            className="box"
-            style={{ marginTop: "12px", marginBottom: "12px" }}
-          >
-            <br />
-            <VoteUpDown
-              votes={article.votes}
-              type="articles"
-              id={article._id}
-            />
+          <div className="column">
+            <div className="box" style={{ height: "100%" }}>
+              <br />
+              <VoteUpDown
+                votes={article.votes}
+                type="articles"
+                id={article._id}
+              />
+            </div>
           </div>
-          <div className="column is-four-fifths">
+          <div className="column is-three-quarters">
             <div className="box">
               <strong>{article.title} </strong>
               <br />

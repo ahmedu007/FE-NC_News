@@ -15,12 +15,18 @@ class CommentList extends React.Component {
     const comment = this.props.comment;
     return (
       <div className="columns">
-        <div className="box" style={{ marginTop: "1%", marginBottom: "1%" }}>
-          <br />
-          <VoteUpDown votes={comment.votes} id={comment._id} type="comments" />
+        <div className="column">
+          <div className="box" style={{ height: "100%" }}>
+            <br />
+            <VoteUpDown
+              votes={comment.votes}
+              id={comment._id}
+              type="comments"
+            />
+          </div>
         </div>
-        <div className="column is-four-fifths">
-          <div className="box" style={{ minHeight: "186px" }}>
+        <div className="column is-three-quarters">
+          <div className="box" style={{ height: "100%" }}>
             <p> {comment.body} </p>
             <br />
             <p>

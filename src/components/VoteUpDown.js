@@ -97,6 +97,7 @@ class VoteUpDown extends React.Component {
                 style={{
                   color: "green"
                 }}
+                title="I Like this"
               />
             </span>
           </a>
@@ -108,6 +109,7 @@ class VoteUpDown extends React.Component {
                 className="fa fa-thumbs-o-down"
                 aria-hidden="true"
                 style={{ color: "tomato" }}
+                title="I don't Like this"
               />
             </span>
           </a>

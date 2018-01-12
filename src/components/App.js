@@ -6,10 +6,7 @@ import Topics from "./Topics";
 import ArticlesByTopic from "./ArticlesByTopic";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-
 import NotFound from "./NotFound";
-
-// import "./App.css";
 
 const App = () => {
   return (

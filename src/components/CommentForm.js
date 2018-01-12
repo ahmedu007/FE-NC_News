@@ -1,5 +1,4 @@
 import React from "react";
-// import "./CommentForm.css";
 import { Form, Input, Button, Icon } from "semantic-ui-react";
 
 class CommentForm extends React.Component {

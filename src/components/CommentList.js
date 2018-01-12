@@ -48,44 +48,11 @@ class CommentList extends React.Component {
             </p>
           </Grid.Column>
         </Grid.Row>
-
         <Grid.Row>
           <Grid.Column width={5} />
           <Grid.Column width={11} />
         </Grid.Row>
       </Grid>
-      // <div className="columns">
-      //   <div className="column">
-      //     <div className="box" style={{ height: "100%" }}>
-      //       <br />
-      //       <VoteUpDown
-      //         votes={comment.votes}
-      //         id={comment._id}
-      //         type="comments"
-      //       />
-      //     </div>
-      //   </div>
-      //   <div className="column is-three-quarters">
-      //     <div className="box" style={{ height: "100%" }}>
-      //       <p> {comment.body} </p>
-      //       <br />
-      //       <p>
-      //         <small>
-      //           comment by: <strong>{comment.created_by}</strong>
-      //         </small>
-      //       </p>
-      //       <p className="field" style={{ textAlign: "right" }}>
-      //         <input
-      //           type="submit"
-      //           className="button is-dark is-outlined"
-      //           onClick={this.handleCommentDelete}
-      //           value={`Delete`}
-      //           name={comment._id}
-      //         />
-      //       </p>
-      //     </div>
-      //   </div>
-      // </div>
     );
   }
 }

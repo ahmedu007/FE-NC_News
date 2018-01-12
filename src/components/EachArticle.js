@@ -36,34 +36,6 @@ class EachArticle extends React.Component {
         <div style={{ textAlign: "center" }}>
           <VoteUpDown votes={article.votes} type="articles" id={article._id} />
         </div>
-
-        {/* <div className="columns">
-          <div className="column">
-            <div className="box" style={{ height: "100%" }}>
-              <br />
-              <VoteUpDown
-                votes={article.votes}
-                type="articles"
-                id={article._id}
-              />
-            </div>
-          </div>
-          <div className="column is-three-quarters">
-            <div className="box">
-              <strong>{article.title} </strong>
-              <br />
-              <br />
-              <p>{article.body}</p>
-              <br />
-              <p>
-                by:{" "}
-                <small>
-                  <strong>{article.created_by}</strong>
-                </small>
-              </p>
-            </div>
-          </div>
-        </div> */}
         <br />
         <h2 style={{ fontSize: "1.5rem" }}>
           <strong>Comments</strong>

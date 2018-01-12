@@ -28,7 +28,7 @@ class Navbar extends React.Component {
           <Menu.Item as="a" header link href="/">
             <Image
               size="mini"
-              src={logo}
+              src="http://www.thefederation.coop/uploads/9/6/1/3/96130266/fed-friends-logos-northcoders_1.jpg"
               style={{
                 marginRight: "1.5em",
                 background: "transparent",

@@ -1,11 +1,13 @@
 import React from "react";
 // import "./CommentForm.css";
+import { Form, Input, Button, Icon } from "semantic-ui-react";
 
 class CommentForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      newComment: { comment: "" }
+      newComment: { comment: "" },
+      button: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -14,6 +16,11 @@ class CommentForm extends React.Component {
   handleChange(event) {
     event.preventDefault();
     let comment = event.target.value;
+    if (comment.length > 0) {
+      this.setState({
+        button: true
+      });
+    } else this.setState({ button: false });
     this.setState({
       newComment: { comment }
     });
@@ -29,26 +36,31 @@ class CommentForm extends React.Component {
 
   render() {
     return (
-      <div className="field">
-        <form onSubmit={this.handleSubmit}>
-          <div className="control">
-            <input
-              className="textarea is-dark"
-              type="text"
-              placeholder="Add a public Comment"
-              onChange={this.handleChange}
-              value={this.state.newComment.comment}
-            />
-          </div>
-          <br />
-          <input
-            type="submit"
-            className="button is-dark is-outlined"
-            value="Post Comment"
-            style={{ color: "white", borderColor: "white" }}
+      <Form onSubmit={this.handleSubmit}>
+        <Form.Field>
+          <label>Post a comment</label>
+          <Input
+            placeholder="Join the conversation"
+            onChange={this.handleChange}
+            value={this.state.newComment.comment}
           />
-        </form>
-      </div>
+        </Form.Field>
+        {this.state.button ? (
+          <Button animated="fade" floated="right" positive type="submit">
+            <Button.Content visible>Post </Button.Content>
+            <Button.Content hidden>
+              <Icon name="send outline" />
+            </Button.Content>
+          </Button>
+        ) : (
+          <Button animated="fade" floated="right" positive disabled>
+            <Button.Content visible>Post </Button.Content>
+            <Button.Content hidden>
+              <Icon name="send outline" />
+            </Button.Content>
+          </Button>
+        )}
+      </Form>
     );
   }
 }

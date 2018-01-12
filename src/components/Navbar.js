@@ -40,11 +40,8 @@ class Navbar extends React.Component {
           </Menu.Item>
           {this.props.topics.map((topic, i) => {
             return (
-              <Menu.Item link as="a">
-                <NavLink
-                  to={`/topics/${topic.title}/articles`}
-                  key={topic.title}
-                >
+              <Menu.Item as="span" key={topic.title}>
+                <NavLink to={`/topics/${topic.title}/articles`}>
                   {topic.title}
                 </NavLink>
               </Menu.Item>

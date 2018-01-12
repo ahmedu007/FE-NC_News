@@ -13,12 +13,12 @@ import NotFound from "./NotFound";
 
 import "./App.css";
 
-ReallySmoothScroll.shim();
+// ReallySmoothScroll.shim();
 
-ReallySmoothScroll.config({
-  mousewheelSensitivity: 8,
-  keydownSensitivity: 8
-});
+// ReallySmoothScroll.config({
+//   mousewheelSensitivity: 8,
+//   keydownSensitivity: 8
+// });
 
 const App = () => {
   return (

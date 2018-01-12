@@ -9,7 +9,8 @@ class CommentList extends React.Component {
   }
 
   handleCommentDelete(event) {
-    this.props.deleteComment(event.target.name);
+    event.preventDefault();
+    this.props.deleteComment(event.target.value);
   }
 
   render() {
@@ -30,9 +31,17 @@ class CommentList extends React.Component {
             <p>{comment.body}</p>
             <p style={{ textAlign: "left" }}>
               comment by: <strong>{comment.created_by}</strong>
-              <Button animated color="black" floated="right">
-                <Button.Content visible>Delete</Button.Content>
-                <Button.Content hidden>
+              <Button
+                animated
+                color="black"
+                floated="right"
+                onClick={this.handleCommentDelete}
+                value={comment._id}
+              >
+                <Button.Content visible value={comment._id}>
+                  Delete
+                </Button.Content>
+                <Button.Content hidden value={comment._id}>
                   <Icon name="trash" />
                 </Button.Content>
               </Button>

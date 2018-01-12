@@ -5,7 +5,6 @@ const Footer = () => {
   return (
     <Segment inverted vertical style={{ margin: "5em 0em 0em" }}>
       <Container textAlign="center">
-        <Divider inverted section />
         <List horizontal inverted divided link>
           <List.Item as="a" href="https://twitter.com/umair170">
             <Icon name="twitter" size="big" title="Twitter" />
@@ -20,6 +19,8 @@ const Footer = () => {
             <Icon name="github" size="big" title="GitHub" />
           </List.Item>
         </List>
+        <Divider inverted section />
+        <em>This site was created by Umair Ahmed</em>
       </Container>
     </Segment>
   );

@@ -13,16 +13,6 @@ class Navbar extends React.Component {
   render() {
     return (
       <Menu fixed="top" inverted>
-        {/* <header className="header">
-        <h1 id="logo">
-          <img src={logo} alt="NC News Logo" />
-        </h1>
-        <nav style={{ left: "10%" }}>
-        <div className="container">
-          <Topic />
-        </div>
-      </nav>
-      </header> */}
         <Container>
           <Menu.Item as="a" header link href="/">
             <Image

@@ -18,7 +18,7 @@ class CommentList extends React.Component {
     return (
       <Grid celled="internally">
         <Grid.Row>
-          <Grid.Column width={3}>
+          <Grid.Column width={5}>
             <span style={{ textAlign: "center" }}>
               <VoteUpDown
                 votes={comment.votes}
@@ -27,7 +27,7 @@ class CommentList extends React.Component {
               />
             </span>
           </Grid.Column>
-          <Grid.Column width={13}>
+          <Grid.Column width={11}>
             <p>{comment.body}</p>
             <p style={{ textAlign: "left" }}>
               comment by: <strong>{comment.created_by}</strong>

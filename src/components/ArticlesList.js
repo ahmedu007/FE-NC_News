@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import VoteUpDown from "./VoteUpDown";
 import { Grid, Segment } from "semantic-ui-react";
 
+import "./ArticleList.css";
+
 const ArticlesList = props => {
   const { article } = props;
   return (
@@ -14,7 +16,7 @@ const ArticlesList = props => {
       </Grid.Column>
       <Grid.Column width={12}>
         <NavLink to={`/articles/${article._id}`} key={article._id}>
-          <Segment style={{ height: "100%" }}>
+          <Segment style={{ height: "100%" }} className="article-hover">
             {article.title}
             <p>
               <em>

@@ -21,7 +21,7 @@ class Homepage extends React.Component {
             <Loading />
           </Container>
         ) : (
-          <Container>
+          <Container style={{ textAlign: "center" }}>
             {this.props.articles.map((article, i) => {
               return <ArticlesList article={article} key={i} />;
             })}

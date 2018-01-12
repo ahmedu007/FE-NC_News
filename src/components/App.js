@@ -11,7 +11,7 @@ import Footer from "./Footer";
 
 import NotFound from "./NotFound";
 
-import "./App.css";
+// import "./App.css";
 
 // ReallySmoothScroll.shim();
 
@@ -25,7 +25,7 @@ const App = () => {
     <BrowserRouter>
       <div>
         <Navbar />
-        <div className="container" style={{ width: "75%" }}>
+        <div className="container">
           <div className="App">
             <br />
             <Switch>

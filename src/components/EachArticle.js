@@ -7,6 +7,7 @@ import postComments from "../actions/postComments.action";
 import CommentForm from "./CommentForm";
 import CommentList from "./CommentList";
 import VoteUpDown from "./VoteUpDown";
+import { Container, Header } from "semantic-ui-react";
 
 class EachArticle extends React.Component {
   componentDidMount() {
@@ -26,8 +27,17 @@ class EachArticle extends React.Component {
   render() {
     const article = this.props.eachArticle;
     return (
-      <div className="container">
-        <div className="columns">
+      <Container text style={{ marginTop: "7em" }}>
+        <Header as="h1">{article.title}</Header>
+        <p>{article.body}</p>
+        <p>
+          Article by: <strong>{article.created_by}</strong>
+        </p>
+        <div style={{ textAlign: "center" }}>
+          <VoteUpDown votes={article.votes} type="articles" id={article._id} />
+        </div>
+
+        {/* <div className="columns">
           <div className="column">
             <div className="box" style={{ height: "100%" }}>
               <br />
@@ -53,7 +63,7 @@ class EachArticle extends React.Component {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
         <br />
         <h2 style={{ fontSize: "1.5rem" }}>
           <strong>Comments</strong>
@@ -80,7 +90,7 @@ class EachArticle extends React.Component {
           handleSubmit={this.props.postComments}
           fetchComments={this.props.fetchComments}
         />
-      </div>
+      </Container>
     );
   }
 }

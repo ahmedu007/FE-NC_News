@@ -17,7 +17,9 @@ class Homepage extends React.Component {
     return (
       <Container style={{ marginTop: "5rem" }}>
         {this.props.loading ? (
-          <Loading />
+          <Container style={{ textAlign: "center", paddingTop: "10%" }}>
+            <Loading />
+          </Container>
         ) : (
           <Container>
             {this.props.articles.map((article, i) => {

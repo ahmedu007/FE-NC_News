@@ -6,6 +6,7 @@ import ArticlesList from "./ArticlesList";
 import fetchArticles from "../actions/articles.action";
 
 import Loading from "./Loading";
+import { Container } from "semantic-ui-react";
 
 class Homepage extends React.Component {
   componentDidMount() {
@@ -14,17 +15,17 @@ class Homepage extends React.Component {
 
   render() {
     return (
-      <div>
+      <Container style={{ marginTop: "5rem" }}>
         {this.props.loading ? (
           <Loading />
         ) : (
-          <div className="container">
+          <Container>
             {this.props.articles.map((article, i) => {
               return <ArticlesList article={article} key={i} />;
             })}
-          </div>
+          </Container>
         )}
-      </div>
+      </Container>
     );
   }
 }

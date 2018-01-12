@@ -24,7 +24,7 @@ class ArticlesByTopic extends React.Component {
 
   render() {
     return (
-      <Container style={{ marginTop: "5rem" }}>
+      <Container style={{ marginTop: "5rem", textAlign: "center" }}>
         {this.props.articlesByTopic.map((article, i) => {
           return <ArticleList article={article} key={i} />;
         })}

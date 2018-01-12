@@ -35,12 +35,20 @@ cd into the project directory and run
 
 ```
 npm install
+
+or
+
+yarn
 ```
 
 then
 
 ```
 npm start
+
+or
+
+yarn start
 ```
 
 and navigate to the following URL in your browser.
@@ -53,6 +61,10 @@ To run tests, please open another terminal window and enter:
 
 ```
 npm test
+
+or
+
+yarn test
 ```
 
 ## Built With
@@ -60,9 +72,9 @@ npm test
 * [ReactJS](https://reactjs.org/) - The server framework used
 * [Redux](https://redux.js.org/) - The state container for React js
 * [React Router](https://reacttraining.com/react-router/) - Routing on the site
-* [Bulma](https://bulma.io/documentation/overview/start/) - The frontend
+* [Semantic UI](https://react.semantic-ui.com/introduction) - The frontend
   framework used
-* [Firebase]() - Hosting service for the App
+* [Firebase](https://firebase.google.com/) - Hosting service for the App
 
 ### Tested with
 

@@ -50,8 +50,8 @@ class CommentList extends React.Component {
         </Grid.Row>
 
         <Grid.Row>
-          <Grid.Column width={3} />
-          <Grid.Column width={10} />
+          <Grid.Column width={5} />
+          <Grid.Column width={11} />
         </Grid.Row>
       </Grid>
       // <div className="columns">

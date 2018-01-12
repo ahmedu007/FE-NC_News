@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import fetchArticlesByTopic from "../actions/articlesByTopic.action";
 import { NavLink } from "react-router-dom";
 import VoteUpDown from "./VoteUpDown";
+import ArticleList from "./ArticlesList";
+import { Container } from "semantic-ui-react";
 
 class ArticlesByTopic extends React.Component {
   componentDidMount() {
@@ -24,38 +26,11 @@ class ArticlesByTopic extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <Container style={{ marginTop: "5rem" }}>
         {this.props.articlesByTopic.map((article, i) => {
-          return (
-            <div className="columns" key={i}>
-              <div
-                className="box"
-                style={{ marginTop: "1%", marginBottom: "1%" }}
-              >
-                <VoteUpDown
-                  type="articles"
-                  votes={article.votes}
-                  id={article._id}
-                />
-              </div>
-              <div className="column is-four-fifths">
-                <div className="box" key={i} style={{ height: "156px" }}>
-                  <NavLink to={`/articles/${article._id}`}>
-                    <span> {article.title}</span>
-                    <br />
-                    <br />
-                    <p>
-                      <em>
-                        <small>by: {article.created_by}</small>
-                      </em>
-                    </p>
-                  </NavLink>
-                </div>
-              </div>
-            </div>
-          );
+          return <ArticleList article={article} key={i} />;
         })}
-      </div>
+      </Container>
     );
   }
 }

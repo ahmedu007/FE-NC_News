@@ -19,7 +19,7 @@ class CommentList extends React.Component {
       <Grid celled="internally">
         <Grid.Row>
           <Grid.Column width={3}>
-            <span>
+            <span style={{ textAlign: "center" }}>
               <VoteUpDown
                 votes={comment.votes}
                 id={comment._id}

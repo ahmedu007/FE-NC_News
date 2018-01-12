@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import API_URL from "../config";
 
-import { Button, Icon } from "semantic-ui-react";
+import { Button, Header, Icon, Modal } from "semantic-ui-react";
 
 class VoteUpDown extends React.Component {
   constructor() {
@@ -106,24 +106,23 @@ class VoteUpDown extends React.Component {
             </Button.Content>
           </Button>
         </span>
-        <div className={this.state.alert ? "modal is-active" : "modal"}>
-          <div className="modal-background" />
-          <div className="modal-content">
-            <article className="message is-dark">
-              <div className="message-header">
-                <p>Invalid Request</p>
-                <button
-                  className="delete"
-                  aria-label="delete"
-                  onClick={this.handleClick}
-                />
-              </div>
-              <div className="message-body">
-                <p>You can only Vote once</p>
-              </div>
-            </article>
-          </div>
-        </div>
+
+        <Modal
+          open={this.state.alert}
+          onClose={this.handleClick}
+          basic
+          size="small"
+        >
+          <Header icon="browser" content="Invalid Request" />
+          <Modal.Content>
+            <h3>You are only allowed to Vote once</h3>
+          </Modal.Content>
+          <Modal.Actions>
+            <Button color="green" onClick={this.handleClick} inverted>
+              <Icon name="checkmark" /> Got it
+            </Button>
+          </Modal.Actions>
+        </Modal>
       </div>
     );
   }

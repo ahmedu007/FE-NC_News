@@ -1,5 +1,4 @@
 import React from "react";
-import Topic from "./Topics";
 import logo from "../NCN-black border cropped.png";
 import { connect } from "react-redux";
 import fetchTopics from "../actions/topics.action";

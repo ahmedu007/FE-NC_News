@@ -2,8 +2,6 @@ import React from "react";
 import PT from "prop-types";
 import { connect } from "react-redux";
 import fetchArticlesByTopic from "../actions/articlesByTopic.action";
-import { NavLink } from "react-router-dom";
-import VoteUpDown from "./VoteUpDown";
 import ArticleList from "./ArticlesList";
 import { Container } from "semantic-ui-react";
 

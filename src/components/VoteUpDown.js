@@ -86,23 +86,33 @@ class VoteUpDown extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{ textAlign: "center" }}>
         <div>
           <strong>{this.state.score}</strong>
         </div>
         <span>
-          <Button animated="vertical" onClick={this.increment}>
+          <Button
+            animated="vertical"
+            onClick={this.increment}
+            color="black"
+            circular
+          >
             <Button.Content hidden>Like</Button.Content>
             <Button.Content visible>
-              <Icon name="like outline" style={{ color: "green" }} />
+              <Icon name="thumbs up" style={{ color: "white" }} />
             </Button.Content>
           </Button>
         </span>
         <span>
-          <Button animated="vertical" onClick={this.decrement}>
+          <Button
+            animated="vertical"
+            onClick={this.decrement}
+            color="black"
+            circular
+          >
             <Button.Content hidden>Dislike</Button.Content>
             <Button.Content visible>
-              <Icon name="dislike outline" style={{ color: "tomato" }} />
+              <Icon name="thumbs down" style={{ color: "tomato" }} />
             </Button.Content>
           </Button>
         </span>

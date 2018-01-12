@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../NCN-black border cropped.png";
 import { connect } from "react-redux";
 import fetchTopics from "../actions/topics.action";
 import { NavLink } from "react-router-dom";
